@@ -55,10 +55,10 @@
     "typescript": "^5.1.3"
   },
   "scripts": {
-    "build": "contentlayer2 build && next build",
+    "build": "contentlayer2 build && next build --webpack",
     "dev": "next dev --webpack",
     "contentlayer2:build": "contentlayer2 build",
     "next:dev": "next dev",
-    "vercel-build": "contentlayer2 build && next build"
+    "vercel-build": "contentlayer2 build && next build --webpack"
   }
 }
