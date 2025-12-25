@@ -6,6 +6,7 @@ import { Fragment, useState, useEffect, useRef } from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
 
+
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
   const navRef = useRef(null)
@@ -53,7 +54,7 @@ const MobileNav = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
             unmount={false}
-          >
+>
             <div className="fixed inset-0 z-60 bg-black/25" />
           </TransitionChild>
 
@@ -105,4 +106,12 @@ const MobileNav = () => {
   )
 }
 
-export default MobileNav
+export default function App() {
+  const [isClient, setIsClient] = useState(false)
+ 
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+ 
+  return <h1>{isClient ? 'This is never prerendered' : 'Prerendered'}</h1>
+}
