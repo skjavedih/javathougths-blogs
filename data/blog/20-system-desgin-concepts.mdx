@@ -1,0 +1,377 @@
+---
+title: "20 System Design Concepts Every Developer Should Know."
+date: "2025-12-27"
+lastmod: "2025-12-27"
+draft: false
+summary: "A practical guide to core system design concepts with diagrams and GitHub references."
+tags: ["System Design", "Architecture", "Backend", "Java", "Microservices"]
+---
+
+# Introduction
+
+System design is not just for interviews—it’s a daily skill for building scalable, reliable, and maintainable software. In this article, we’ll cover 20 essential system design concepts every developer should understand, with simple explanations, architecture intuition, and GitHub references.
+
+## 1. Load Balancing
+Load Balancing is a technique used to distribute incoming requests (traffic) across multiple servers so that no single server gets overloaded.
+Instead of sending all users to one server, a load balancer acts like a traffic police and decides which server should handle each request.
+
+This makes applications:
+
+* **🚀 Faster**
+* **🧱 More reliable**
+* **📈 Scalable**
+* **💥 Less likely to crash**
+
+#### Simple Real-Life Example
+Imagine a busy restaurant with **only one waiter.**
+If 100 customers arrive at the same time → the waiter gets overwhelmed
+Orders are delayed
+Customers get frustrated.
+
+Now imagine **4 waiters** instead. Each waiter handles some tables Orders are served faster No one is overloaded
+
+* **👉 Load Balancer = Restaurant Manager**
+* **👉 Servers = Waiters**
+* **👉 Customers = User requests**
+
+#### Why it matters:
+
+* **Improves availability**
+* **Increases scalability**
+* **Prevents server overload**
+
+<Image
+  src="/static/images/system-design/load-balancing.png"
+  alt="Load Balancing Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub examples:
+https://github.com/teejays/load-balancer
+https://github.com/github/glb-director
+
+
+## 2. Caching
+Caching is a technique where we store frequently used data in a fast storage (cache) so that future requests can be served quickly without hitting the database or backend again.
+In short:
+
+| **Caching = Store data once, reuse it many times faster**
+
+#### How Caching Works (Step by Step)
+1. **User sends a request**
+2. **Application checks the cache first**
+3. **If data is found → Cache Hit ✅**
+4. **If not found → Cache Miss ❌**
+5. **On cache miss:**
+    * Fetch data from database / API
+    * Store it in cache
+    * Return response to user
+
+#### Types of Caching (Easy to Understand)
+1. **In-Memory Cache**
+Stored in RAM (very fast)
+
+Examples:
+* Redis
+* Memcached
+* Caffeine (Java)
+
+**✔ Extremely fast** <br />
+**❌ Data lost on restart** <br />
+
+2. **Application-Level Cache**
+Cache lives inside the application.
+
+Example:
+* Spring Boot Cache (@Cacheable)
+
+**✔ Simple to implement** <br />
+**❌ Not shared across instances**
+
+3. **Distributed Cache**
+Cache shared by multiple servers.
+
+Examples:
+* Redis Cluster
+* Hazelcast
+
+**✔ Works well with microservices** <br />
+**✔ Scales horizontally** <br />
+
+4. **Browser / CDN Cache**
+Used for static content like images, CSS, JS.
+
+**✔ Reduces server load**  <br />
+**✔ Faster page load** <br />
+
+Why it matters:
+* **Reduces database load**
+* **Improves response times**
+* **Prevents data consistency issues**
+
+<Image
+  src="/static/images/system-design/caching.jpeg"
+  alt="Caching Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub examples:
+https://github.com/redis/redis
+https://github.com/ehcache/ehcache
+
+
+## 3. Database Sharding
+Database sharding splits data across multiple databases to improve performance and scalability.
+Why it matters:
+Improves performance
+Increases scalability
+Prevents data consistency issues
+
+<Image
+  src="/static/images/system-design/database-sharding.jpeg"
+  alt="Database Sharding Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub examples:
+https://github.com/nthieu29/mongodb-sharding-demo
+
+
+
+## 4. Replication
+
+Replication is the process of sharing information across multiple servers to increase data
+availability and fault tolerance.
+
+<Image
+  src="/static/images/system-design/replication.jpeg"
+  alt="Replication Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub examples:
+https://github.com/datacharmer/test_db
+
+
+## 5. CAP Theorem
+CAP theorem states that a distributed system can guarantee only two of the following:
+Consistency
+Availability
+Partition Tolerance
+
+<Image
+  src="/static/images/system-design/cap-theorem.jpeg"
+  alt="CAP Theorem Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub reference:
+https://github.com/karanpratapsingh/system-design#cap-theorem
+
+## 6. Consistent Hashing
+Consistent hashing minimizes data movement when nodes are added or removed in a distributed system.
+
+<Image
+  src="/static/images/system-design/consistent-hashing.jpeg"
+  alt="Consistent Hashing Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub example:
+https://github.com/stathat/consistent
+
+## 7. Message Queues
+Message queues enable asynchronous communication between producers and consumers.
+
+<Image
+  src="/static/images/system-design/message-queue.jpeg"
+  alt="Message Queue Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub example:
+https://github.com/rabbitmq/rabbitmq-tutorials
+
+## 8. Rate Limiting
+Rate limiting controls how many requests a client can make in a given time window.
+
+<Image
+  src="/static/images/system-design/rate-limiting-new.jpeg"
+  alt="Rate Limiting Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub example:
+https://github.com/nfriedly/express-rate-limit
+
+## 9. API Gateway
+An API Gateway acts as a single entry point for multiple backend services.
+
+<Image
+  src="/static/images/system-design/api-gateway.jpeg"
+  alt="API Gateway Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub example:
+https://github.com/Kong/kong
+
+## 10. Microservices
+Microservices architecture breaks applications into small, independently deployable services.
+
+<Image
+  src="/static/images/system-design/microservices.jpeg"
+  alt="Microservices Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub examples:
+https://github.com/callicoder/spring-boot-microservices-series
+https://github.com/dotnet-architecture/eShopOnContainers
+
+## 11. Service Discovery
+Service discovery helps services dynamically locate each other in distributed systems.
+
+<Image
+  src="/static/images/system-design/service-discovery.jpeg"
+  alt="Service Discovery Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub examples:
+https://github.com/Netflix/eureka
+https://github.com/hashicorp/consul
+
+## 12. CDNs (Content Delivery Networks)
+CDNs cache content at edge locations to reduce latency for global users.
+
+<Image
+  src="/static/images/system-design/cdn.png"
+  alt="CDN Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub example:
+https://github.com/opencdn/opencdn
+
+## 13. Database Indexing
+Indexes speed up data retrieval by providing quick lookup paths.
+
+<Image
+  src="/static/images/system-design/database-indexing.jpeg"
+  alt="Database Indexing Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub example:
+https://github.com/greenlion/simdb
+
+## 14. Partitioning
+Partitioning divides tables into smaller segments for performance and manageability.
+
+<Image
+  src="/static/images/system-design/partitioning.jpeg"
+  alt="Partitioning Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub example:
+https://github.com/oliver006/partitioned-tables-example
+
+## 15. Eventual Consistency
+Eventual consistency ensures all replicas converge to the same state over time.
+
+<Image
+  src="/static/images/system-design/eventual-consistency.jpeg"
+  alt="Eventual Consistency Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub example:
+https://github.com/aws-samples/aws-dynamodb-eventual-consistency
+
+## 16. WebSockets
+WebSockets enable real-time, bidirectional communication.
+
+<Image
+  src="/static/images/system-design/web-socket.jpeg"
+  alt="WebSockets Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub example:
+https://github.com/websockets/ws
+
+## 17. Scalability
+Scalability measures a system’s ability to handle increased load.
+
+<Image
+  src="/static/images/system-design/scalability.jpeg"
+  alt="Scalability Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub reference:
+https://github.com/donnemartin/system-design-primer#scalability
+
+## 18. Fault Tolerance
+Fault-tolerant systems continue operating even when components fail.
+
+<Image
+  src="/static/images/system-design/fault-tolerance.jpeg"
+  alt="Fault Tolerance Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub example:
+https://github.com/Netflix/Hystrix
+
+## 19. Monitoring
+Monitoring tracks system health, performance, and errors.
+
+<Image
+  src="/static/images/system-design/monitoring.jpeg"
+  alt="Monitoring Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub examples:
+https://github.com/prometheus/prometheus
+https://github.com/grafana/grafana
+
+## 20. Circuit Breaker Pattern
+The Circuit Breaker pattern prevents cascading failures by failing fast when services are unhealthy.
+
+<Image
+  src="/static/images/system-design/circuit-breaker.png"
+  alt="Circuit Breaker Pattern Diagram"
+  width={800}
+  height={400}
+/>
+
+#### GitHub examples:
+https://github.com/Netflix/Hystrix
+https://github.com/resilience4j/resilience4j
+
+
+## Final Thoughts
+Mastering these system design concepts will help you build better software and perform confidently in system design interviews. If you’re a backend developer (especially Java), these patterns show up everywhere in real-world systems.
