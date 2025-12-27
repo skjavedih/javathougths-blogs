@@ -54,7 +54,7 @@ const MobileNav = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
             unmount={false}
->
+          >
             <div className="fixed inset-0 z-60 bg-black/25" />
           </TransitionChild>
 
@@ -106,12 +106,6 @@ const MobileNav = () => {
   )
 }
 
-export default function App() {
-  const [isClient, setIsClient] = useState(false)
- 
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
- 
-  return <h1>{isClient ? 'This is never prerendered' : 'Prerendered'}</h1>
-}
+
+export default MobileNav
+

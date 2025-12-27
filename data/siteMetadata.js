@@ -8,7 +8,7 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://javathoughts-blogs.vercel.app',
   siteRepo: 'https://github.com/skjavedih/javathoughts-blogs',
-  siteLogo: `${process.env.BASE_PATH || ''}/static/images/new-new-logo.png`,
+  siteLogo: `${process.env.BASE_PATH || ''}/static/images/new-logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'address@yoursite.com',
