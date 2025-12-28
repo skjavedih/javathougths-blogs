@@ -6,9 +6,9 @@ const siteMetadata = {
   description: 'System Design Mastery Hub - Learn System Design Patterns, Architecture, and Best Practices.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://javathoughts-blogs.vercel.app',
+  siteUrl: 'https://www.javathoughts.com',
   siteRepo: 'https://github.com/skjavedih/javathoughts-blogs',
-  siteLogo: `${process.env.BASE_PATH || ''}/static/images/new-logo.png`,
+  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo-n.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'address@yoursite.com',
@@ -52,7 +52,7 @@ const siteMetadata = {
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus, beehive
     // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    provider: 'mailerlite',
   },
   comments: {
     // If you want to use an analytics provider you have to add it to the

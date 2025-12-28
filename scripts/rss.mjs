@@ -60,4 +60,7 @@ const rss = () => {
   generateRSS(siteMetadata, allBlogs)
   console.log('RSS feed generated...')
 }
+
+rss()
+
 export default rss
