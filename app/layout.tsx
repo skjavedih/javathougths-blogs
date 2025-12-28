@@ -72,24 +72,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <link
         rel="apple-touch-icon"
         sizes="76x76"
-        href={`${basePath}/static/images/new-logo.png`}
+        href={`${basePath}/static/images/logo-n.png`}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href={`${basePath}/static/images/new-logo.png`}
+        href={`${basePath}/static/images/logo-n.png`}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href={`${basePath}/static/images/new-logo.png`}
+        href={`${basePath}/static/images/logo-n.png`}
       />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
       <link
         rel="mask-icon"
-        href={`${basePath}/static/images/new-logo.png`}
+        href={`${basePath}/static/images/logo-n.png`}
         color="#5bbad5"
       />
       <meta name="msapplication-TileColor" content="#000000" />
