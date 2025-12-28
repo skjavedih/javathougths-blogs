@@ -7,7 +7,8 @@ import tagData from '../app/tag-data.json' with { type: 'json' }
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import { sortPosts } from 'pliny/utils/contentlayer.js'
 
-const outputFolder = process.env.EXPORT ? 'out' : 'public'
+const outputFolder = 'public'
+console.log(`[RSS] Generating RSS feed to folder: ${outputFolder}`)
 
 const generateRssItem = (config, post) => `
   <item>
@@ -42,7 +43,9 @@ async function generateRSS(config, allBlogs, page = 'feed.xml') {
   // RSS for blog post
   if (publishPosts.length > 0) {
     const rss = generateRss(config, sortPosts(publishPosts))
-    writeFileSync(`./${outputFolder}/${page}`, rss)
+    const outputPath = path.join(process.cwd(), outputFolder, page)
+    writeFileSync(outputPath, rss)
+    console.log(`[RSS] Written to: ${outputPath}`)
   }
 
   if (publishPosts.length > 0) {
