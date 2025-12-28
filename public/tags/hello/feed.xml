@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Javathoughts Blog</title>
+      <link>https://www.javathoughts.com/blog</link>
+      <description>System Design Mastery Hub - Learn System Design Patterns, Architecture, and Best Practices.</description>
+      <language>en-us</language>
+      <managingEditor>skjavedb@gmail.com (Javed Shaikh)</managingEditor>
+      <webMaster>skjavedb@gmail.com (Javed Shaikh)</webMaster>
+      <lastBuildDate>Sun, 31 Jan 2021 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://www.javathoughts.com/tags/hello/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://www.javathoughts.com/blog/my-fancy-title</guid>
+    <title>My fancy title</title>
+    <link>https://www.javathoughts.com/blog/my-fancy-title</link>
+    <description>draft post</description>
+    <pubDate>Sun, 31 Jan 2021 00:00:00 GMT</pubDate>
+    <author>skjavedb@gmail.com (Javed Shaikh)</author>
+    <category>hello</category>
+  </item>
+
+    </channel>
+  </rss>

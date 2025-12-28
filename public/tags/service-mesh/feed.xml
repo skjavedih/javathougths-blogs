@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Javathoughts Blog</title>
+      <link>https://www.javathoughts.com/blog</link>
+      <description>System Design Mastery Hub - Learn System Design Patterns, Architecture, and Best Practices.</description>
+      <language>en-us</language>
+      <managingEditor>skjavedb@gmail.com (Javed Shaikh)</managingEditor>
+      <webMaster>skjavedb@gmail.com (Javed Shaikh)</webMaster>
+      <lastBuildDate>Thu, 25 Dec 2025 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://www.javathoughts.com/tags/service-mesh/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://www.javathoughts.com/blog/service-mesh-pattern</guid>
+    <title>Service Mesh Explained with a Project</title>
+    <link>https://www.javathoughts.com/blog/service-mesh-pattern</link>
+    <description>A detailed explanation of Service Mesh architecture, benefits, and real-world use cases with examples.</description>
+    <pubDate>Thu, 25 Dec 2025 00:00:00 GMT</pubDate>
+    <author>skjavedb@gmail.com (Javed Shaikh)</author>
+    <category>Service Mesh</category><category>Microservices</category><category>Istio</category><category>DevOps</category><category>Kubernetes</category>
+  </item>
+
+    </channel>
+  </rss>

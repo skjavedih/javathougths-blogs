@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Javathoughts Blog</title>
+      <link>https://www.javathoughts.com/blog</link>
+      <description>System Design Mastery Hub - Learn System Design Patterns, Architecture, and Best Practices.</description>
+      <language>en-us</language>
+      <managingEditor>skjavedb@gmail.com (Javed Shaikh)</managingEditor>
+      <webMaster>skjavedb@gmail.com (Javed Shaikh)</webMaster>
+      <lastBuildDate>Wed, 15 Aug 2018 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://www.javathoughts.com/tags/book/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://www.javathoughts.com/blog/the-time-machine</guid>
+    <title>The Time Machine</title>
+    <link>https://www.javathoughts.com/blog/the-time-machine</link>
+    <description>The Time Traveller (for so it will be convenient to speak of him) was expounding a recondite matter to us. His pale grey eyes shone and twinkled, and his usually pale face was flushed and animated...</description>
+    <pubDate>Wed, 15 Aug 2018 00:00:00 GMT</pubDate>
+    <author>skjavedb@gmail.com (Javed Shaikh)</author>
+    <category>writings</category><category>book</category><category>reflection</category>
+  </item>
+
+    </channel>
+  </rss>
