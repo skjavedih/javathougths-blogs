@@ -4,15 +4,13 @@
   "backend": 1,
   "java": 1,
   "microservices": 2,
-  "hello": 1,
+  "ai-agents": 1,
+  "llm": 1,
+  "enterprise-ai": 1,
+  "generative-ai": 1,
+  "future-of-ai": 1,
   "service-mesh": 1,
   "istio": 1,
   "devops": 1,
-  "kubernetes": 1,
-  "writings": 1,
-  "book": 1,
-  "reflection": 1,
-  "multi-author": 1,
-  "next-js": 1,
-  "feature": 1
+  "kubernetes": 1
 }
