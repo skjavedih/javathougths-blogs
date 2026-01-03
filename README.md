@@ -2,7 +2,7 @@
 
 **System Design Mastery Hub** - A personal blog dedicated to System Design Patterns, Software Architecture, Java, and Best Practices.
 
-**Live Site:** [https://www.javathoughts.com](https://www.javathoughts.com)
+**Live Site:** [https://www.javathoughts.com]
 
 ## 🚀 Technologies
 
