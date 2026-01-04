@@ -9,6 +9,8 @@ import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import ViewCounter from '@/components/ViewCounter'
+import LikeButton from '@/components/LikeButton'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -47,6 +49,12 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     <time dateTime={date}>
                       {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                     </time>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="sr-only">Views</dt>
+                  <dd className="text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
+                    <ViewCounter slug={slug} />
                   </dd>
                 </div>
               </dl>
@@ -97,6 +105,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
               <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={editUrl(filePath)}>View on GitHub</Link>
+              </div>
+              <div className="pt-6 pb-6 text-center">
+                <LikeButton slug={slug} />
               </div>
               {siteMetadata.comments && (
                 <div
