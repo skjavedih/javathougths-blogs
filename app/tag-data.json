@@ -9,11 +9,18 @@
   "enterprise-ai": 1,
   "generative-ai": 1,
   "future-of-ai": 1,
+  "hello": 1,
   "service-mesh": 1,
   "istio": 1,
   "devops": 1,
   "kubernetes": 1,
   "kafka": 1,
   "shopify": 1,
-  "event-driven": 1
+  "event-driven": 1,
+  "writings": 1,
+  "book": 1,
+  "reflection": 1,
+  "multi-author": 1,
+  "next-js": 1,
+  "feature": 1
 }
