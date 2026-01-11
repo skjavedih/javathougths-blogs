@@ -11,7 +11,7 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
-import NewsletterForm from 'pliny/ui/NewsletterForm'
+import NewsletterForm from '@/components/NewsletterForm'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
