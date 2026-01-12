@@ -14,9 +14,9 @@ export default function Pagination({ totalPages, currentPage, basePath = 'blog' 
         if (page === 1) {
             // If we are on home (basePath is empty), go to '/'
             // If we are on blog (basePath is 'blog'), go to '/blog'
-            return basePath ? `/ ${basePath} ` : '/'
+            return basePath ? `/${basePath}` : '/'
         }
-        return basePath ? `/ ${basePath} /page/${page} ` : ` / page / ${page} `
+        return basePath ? `/${basePath}/page/${page}` : `/page/${page}`
     }
 
     return (
