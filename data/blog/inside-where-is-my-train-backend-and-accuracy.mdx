@@ -1,0 +1,141 @@
+---
+title: "Inside Where Is My Train: Backend System Design & How High Accuracy Is Achieved"
+date: 2026-01-22
+lastmod: 2026-01-22
+draft: true
+tags: ["System Design", "Backend", "Indian Railways", "Mobile Apps"]
+images: ["/static/images/where-is-my-train/where-is-my-train-design.png"]
+summary: "A simple, non-technical explanation of the backend system design, technologies, and accuracy mechanisms behind the Where Is My Train app."
+---
+
+## Introduction 🚆
+
+**Where Is My Train** is trusted by millions of Indian railway passengers because it works even when the internet does not.
+
+This blog explains **both the backend system design and how the app achieves high accuracy**, using simple words and visual diagrams.
+
+---
+<Image
+  src="/static/images/where-is-my-train/where-is-my-train-design.png"
+  alt="Load Balancing Diagram"
+  width={800}
+  height={400}
+/>
+
+
+## The Core Idea (Very Simple)
+
+Instead of depending only on railway servers, the app combines:
+- Your phone’s location
+- Offline train schedules
+- Data from other passengers
+- Backend prediction systems
+
+This mix makes the system reliable and fast.
+
+---
+
+## Overall Backend Architecture
+
+### What is happening?
+1. Your phone sends location signals
+2. The app detects the train locally
+3. Data from many users is combined
+4. Backend systems predict live status
+5. Updated info is shown to users
+
+---
+
+## Offline-First Design (Why It Works Without Internet)
+
+The app stores:
+- Train routes
+- Station lists
+- Distances between stations
+
+So even without internet, your phone can still know:
+> “Which train am I on and where am I going?”
+
+---
+
+## Data Fusion: How Accuracy Is Improved
+
+
+Different signals are combined:
+- GPS (high accuracy)
+- Mobile towers (works in tunnels)
+- Crowd data (many users together)
+
+The system merges these signals to calculate **one best location**.
+
+---
+
+## Backend Technology (What They Likely Use)
+
+After Google acquired the app, it likely moved to a modern cloud backend:
+- Microservices architecture
+- Streaming systems (for live data)
+- Fast databases for current train state
+- Secure anonymized data processing
+
+Each service does one small job, making the system fast and scalable.
+
+---
+
+## How Arrival Time (ETA) Is Calculated
+
+ETA uses:
+- Current train speed
+- Distance to next station
+- Historical delays
+- Past station halt times
+
+A mix of **rules + machine learning** improves predictions over time.
+
+---
+
+## Crowd Intelligence (Power of Many Users)
+
+When many people are on the same train:
+- Their phones confirm the train’s speed
+- Sudden stops are detected
+- Delays are identified early
+
+More users = higher confidence.
+
+---
+
+## Why 100% Accuracy Is Almost Impossible
+
+- Tunnels block signals
+- Weather affects GPS
+- Network gaps exist
+
+Instead of chasing perfection, the system focuses on **consistency and reliability**.
+
+---
+
+## Simple Mind Map of the System
+
+This shows how:
+- Offline logic
+- Crowd data
+- Backend services
+- Prediction engines
+
+All work together.
+
+---
+
+## Final Takeaway
+
+- Smart backend design matters more than raw data
+- Offline-first logic makes the app unique
+- Crowd intelligence boosts accuracy
+- Cloud backend scales the system to millions
+
+This is a great example of **real-world system design solving real problems**.
+
+---
+
+Happy learning and safe journeys 🚆

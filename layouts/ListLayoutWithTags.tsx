@@ -7,6 +7,7 @@ import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
+import Image from '@/components/Image'
 import siteMetadata from '@/data/siteMetadata'
 import tagData from 'app/tag-data.json'
 import Pagination from '@/components/Pagination'
@@ -101,6 +102,17 @@ export default function ListLayoutWithTags({
                         </dd>
                       </dl>
                       <div className="space-y-3">
+                        {post.images && post.images.length > 0 && (
+                          <div className="mb-2">
+                            <Image
+                              src={post.images[0]}
+                              alt={title}
+                              width={800}
+                              height={400}
+                              className="object-cover object-center w-full h-64 rounded-lg"
+                            />
+                          </div>
+                        )}
                         <div>
                           <h2 className="text-2xl leading-8 font-bold tracking-tight">
                             <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">

@@ -3,6 +3,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import Pagination from '@/components/Pagination'
+import Image from '@/components/Image'
 
 export default function Home({ posts, pagination }) {
   return (
@@ -33,6 +34,17 @@ export default function Home({ posts, pagination }) {
                     <div className="space-y-5 xl:col-span-3">
                       <div className="space-y-6">
                         <div>
+                          {post.images && post.images.length > 0 && (
+                            <div className="mb-2">
+                              <Image
+                                src={post.images[0]}
+                                alt={title}
+                                width={800}
+                                height={400}
+                                className="object-cover object-center w-full h-64 rounded-lg"
+                              />
+                            </div>
+                          )}
                           <h2 className="text-2xl leading-8 font-bold tracking-tight">
                             <Link
                               href={`/blog/${slug}`}
