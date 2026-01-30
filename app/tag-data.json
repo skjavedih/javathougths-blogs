@@ -1,4 +1,7 @@
 {
+  "system-design": 6,
+  "architecture": 3,
+  "interview-preparation": 1,
   "startup-story": 1,
   "indian-startups": 1,
   "google": 1,
@@ -7,7 +10,6 @@
   "travel": 1,
   "technology-explained": 1,
   "mobile-apps": 2,
-  "system-design": 5,
   "backend": 2,
   "java": 3,
   "java-lts": 1,
@@ -19,7 +21,6 @@
   "spring-boot": 1,
   "kafka": 2,
   "healthcare": 1,
-  "architecture": 2,
   "shopify": 1,
   "event-driven": 1,
   "ai-agents": 1,
