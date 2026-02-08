@@ -107,9 +107,11 @@ export default function ListLayoutWithTags({
                             <Image
                               src={post.images[0]}
                               alt={title}
-                              width={800}
-                              height={400}
-                              className="object-cover object-center w-full h-64 rounded-lg"
+                              width={0}
+                              height={0}
+                              sizes="100vw"
+                              style={{ width: '100%', height: 'auto' }}
+                              className="object-center w-full rounded-lg"
                             />
                           </div>
                         )}

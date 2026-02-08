@@ -1,0 +1,202 @@
+---
+title: "Netflix Experiments with Java 21 Virtual Threads — Why It Failed (For Now)"
+summary: "Netflix experimented with Java 21 Virtual Threads (Project Loom) in real production workloads."
+date: "2026-02-08"
+lastmod: "2026-02-08"
+draft: false
+images: ["/static/images/netflix-virtual-tread-failed.png"]
+tags: ["Java", "Virtual Threads", "Netflix", "Locks"]
+---
+
+![System Design Interview Hero](/static/images/netflix-virtual-tread-failed.png)
+  
+> Netflix experimented with **Java 21 Virtual Threads (Project Loom)** in real production workloads.  
+> The idea was promising, but they hit **thread pinning and lock starvation issues** that made the system unstable at scale.  
+> Virtual Threads didn’t fail conceptually — **the experiment revealed sharp edges in early adoption**.
+
+## Background: Why Netflix Looked at Virtual Threads
+
+Netflix runs **thousands of Java microservices** handling massive concurrent traffic.  
+Historically, they rely on:
+
+- Netty event loops  
+- Reactive programming (RxJava / Reactor)  
+- Carefully tuned thread pools  
+
+These systems scale extremely well — but they are **complex to reason about, debug, and maintain**.
+
+### The Promise of Virtual Threads
+
+Java 21 introduced **Virtual Threads**, allowing:
+
+- Thread-per-request programming style  
+- Blocking I/O without massive thread costs  
+- Simpler, readable code compared to reactive pipelines  
+
+For Netflix engineers, this raised a natural question:
+
+> *Can we simplify concurrency without sacrificing reliability at Netflix scale?*
+
+So they tried.
+
+---
+
+## What Netflix Actually Did
+
+Netflix upgraded selected services to **Java 21** and enabled **Virtual Threads** in a Spring Boot + Tomcat setup.
+
+Conceptually:
+
+- Each incoming request ran on a virtual thread
+- Blocking calls (HTTP, DB, locks) were allowed
+- The JVM scheduled virtual threads over a small pool of OS threads (carrier threads)
+
+At first, everything looked fine.
+
+Then production traffic hit.
+
+---
+
+## The Failure Symptoms
+
+Under real load, some services began showing:
+
+- Requests hanging indefinitely  
+- Sudden traffic timeouts  
+- Instances appearing *alive* but serving no traffic  
+
+### Thread Dumps Looked Confusing
+
+- Thousands of virtual threads existed
+- Most appeared **parked or inactive**
+- No obvious deadlocks were visible
+
+To operators, the service looked *frozen*.
+
+---
+
+## The Root Cause: Virtual Thread Pinning
+
+The problem came down to **pinning**, a subtle but critical behavior in Java 21.
+
+### How Virtual Threads Normally Work
+
+- Virtual threads are **not tied to OS threads**
+- When blocked (I/O, sleep), they unmount from the carrier thread
+- The carrier thread runs other virtual threads
+
+### What Went Wrong
+
+Pinning happens when:
+
+- A virtual thread enters a `synchronized` block
+- Then blocks (I/O, waiting for another lock)
+
+When this occurs:
+
+- The virtual thread **cannot unmount**
+- It stays *pinned* to its carrier OS thread
+- The carrier thread becomes unusable
+
+At Netflix scale:
+
+- Many pinned virtual threads accumulated
+- All carrier threads were consumed
+- New virtual threads had **no OS thread to run on**
+- The system effectively deadlocked
+
+No crash. No exception. Just… silence.
+
+---
+
+## Why This Hurt Netflix More Than Others
+
+Netflix services:
+
+- Use legacy synchronized code paths
+- Run at extreme concurrency levels
+- Share locks deep in frameworks and libraries
+
+Even *small* synchronized sections became catastrophic under load.
+
+This is not a typical CRUD-app problem — it’s a **hyperscale problem**.
+
+---
+
+## Was This a Java 21 Bug?
+
+Not exactly.
+
+This behavior was:
+
+- Known and documented by Project Loom
+- Considered an early limitation
+- Especially dangerous in large, lock-heavy systems
+
+Later Java versions improve this, but **Java 21 was not “safe by default”** for Netflix’s workload.
+
+---
+
+## Mitigations Netflix Identified
+
+Netflix engineers found ways to reduce the issue:
+
+### 1. Replace `synchronized` with `ReentrantLock`
+- `ReentrantLock` does **not pin** virtual threads
+- Requires careful refactoring
+
+### 2. Avoid Blocking Inside Locks
+- Especially I/O inside synchronized blocks
+
+### 3. Deep Code Audits
+- Identify legacy synchronization hotspots
+- Extremely expensive at Netflix scale
+
+Even with mitigations, the **risk outweighed the reward**.
+
+---
+
+## Final Outcome
+
+Netflix did **not fully adopt Virtual Threads in production**.
+
+Instead, they:
+
+- Rolled back affected services
+- Shared learnings publicly
+- Continued using reactive and async models
+- Waited for Loom to mature further
+
+This wasn’t failure — it was **valuable early feedback** for the Java ecosystem.
+
+---
+
+## What This Means for Everyone Else
+
+### If You Are Netflix-Scale
+- Virtual Threads (Java 21) were risky
+- Lock-heavy systems need extreme care
+- Reactive models still dominate
+
+### If You Are *Not* Netflix-Scale
+Virtual Threads are often:
+
+- A huge win
+- Simpler than reactive
+- Safer in modern codebases
+
+Most teams **will not hit Netflix’s edge cases**.
+
+---
+
+## Key Takeaways
+
+- Virtual Threads did not “fail” — **early adoption exposed limits**
+- `synchronized` + blocking is dangerous with Java 21
+- Netflix’s experiment improved JVM evolution
+- Java concurrency is finally becoming simpler — but not magic
+
+---
+
+**Note:**  
+This case study proves why production experiments by companies like Netflix matter — they push platforms forward for everyone else.
