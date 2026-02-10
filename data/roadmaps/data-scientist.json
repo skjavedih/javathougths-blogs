@@ -1,0 +1,77 @@
+{
+  "id": "root",
+  "label": "Data Scientist",
+  "type": "root",
+  "children": [
+    {
+      "id": "foundation-ref",
+      "label": "Foundation",
+      "dataRef": "common-foundation"
+    },
+    {
+      "id": "data-analysis",
+      "label": "Data Analysis",
+      "children": [
+        {
+          "id": "pandas-numpy",
+          "label": "NumPy & Pandas",
+          "description": "High-performance array manipulation and data analysis tools.",
+          "externalLinks": [
+            {
+              "label": "Pandas Docs",
+              "url": "https://pandas.pydata.org/"
+            }
+          ]
+        },
+        {
+          "id": "eda",
+          "label": "Data Cleaning & EDA",
+          "description": "Handling missing values, outliers, and exploratory analysis."
+        },
+        {
+          "id": "visualization",
+          "label": "Data Visualization",
+          "description": "Matplotlib, Seaborn, Plotly. Telling stories with data."
+        }
+      ]
+    },
+    {
+      "id": "applied-ml",
+      "label": "Applied ML",
+      "children": [
+        {
+          "id": "scikit-learn",
+          "label": "Scikit-Learn",
+          "description": "Standard library for machine learning in Python.",
+          "externalLinks": [
+            {
+              "label": "Scikit-Learn",
+              "url": "https://scikit-learn.org/"
+            }
+          ]
+        },
+        {
+          "id": "stats",
+          "label": "Statistics",
+          "description": "Hypothesis testing, p-values, A/B testing."
+        }
+      ]
+    },
+    {
+      "id": "business",
+      "label": "Business & Storytelling",
+      "description": "Translating technical insights into business value."
+    },
+    {
+      "id": "projects",
+      "label": "Real-world Projects",
+      "description": "Build end-to-end projects to showcase your skills.",
+      "externalLinks": [
+        {
+          "label": "Hands-on ML GitHub",
+          "url": "https://github.com/ageron/handson-ml"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "foundation",
+  "label": "Common Foundation",
+  "type": "branch",
+  "children": [
+    {
+      "id": "python",
+      "label": "Programming (Python)",
+      "description": "Master Python syntax, data structures, and functional programming concepts.",
+      "externalLinks": [
+        {
+          "label": "Python.org",
+          "url": "https://www.python.org/"
+        },
+        {
+          "label": "Real Python",
+          "url": "https://realpython.com/"
+        }
+      ]
+    },
+    {
+      "id": "math",
+      "label": "Math for ML",
+      "children": [
+        {
+          "id": "linear-algebra",
+          "label": "Linear Algebra",
+          "description": "Vectors, Matrices, Eigenvalues/Eigenvectors."
+        },
+        {
+          "id": "calculus",
+          "label": "Calculus",
+          "description": "Derivatives, Gradients, Chain Rule."
+        },
+        {
+          "id": "probability",
+          "label": "Probability & Statistics",
+          "description": "Distributions, Bayes Theorem, Hypothesis Testing."
+        }
+      ]
+    },
+    {
+      "id": "cs-basics",
+      "label": "CS Basics",
+      "children": [
+        {
+          "id": "dsa",
+          "label": "Data Structures & Algorithms",
+          "description": "Lists, Trees, Graphs, Sorting, Searching."
+        },
+        {
+          "id": "databases",
+          "label": "Databases (SQL)",
+          "description": "Relational databases, SQL queries, Joins."
+        }
+      ]
+    }
+  ]
+}

@@ -35,12 +35,14 @@ Ensure you have **Node.js** (v18 or higher) and **Yarn** or **NPM** installed.
 ### Installation
 
 1.  **Clone the repository**:
+
     ```bash
     git clone https://github.com/skjavedih/javathoughts-blogs.git
     cd javathoughts-blogs
     ```
 
 2.  **Install dependencies**:
+
     ```bash
     npm install
     # or
@@ -49,6 +51,7 @@ Ensure you have **Node.js** (v18 or higher) and **Yarn** or **NPM** installed.
 
 3.  **Environment Variables**:
     Create a `.env` file in the root directory and add the necessary keys (request from owner if needed):
+
     ```env
     # Newsletter (MailerLite)
     MAILERLITE_API_KEY=your_api_key

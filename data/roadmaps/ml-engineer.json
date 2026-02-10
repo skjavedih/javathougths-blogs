@@ -1,0 +1,89 @@
+{
+  "id": "root",
+  "label": "ML Engineer",
+  "type": "root",
+  "children": [
+    {
+      "id": "foundation-ref",
+      "label": "Foundation",
+      "dataRef": "common-foundation"
+    },
+    {
+      "id": "advanced-ml",
+      "label": "Advanced ML",
+      "children": [
+        {
+          "id": "optimization",
+          "label": "Model Optimization",
+          "description": "Hyperparameter tuning, regularization, feature engineering."
+        },
+        {
+          "id": "deep-learning",
+          "label": "Deep Learning",
+          "children": [
+            {
+              "id": "cnn",
+              "label": "CNNs",
+              "description": "Convolutional Neural Networks for vision."
+            },
+            {
+              "id": "rnn",
+              "label": "RNNs & Transformers",
+              "description": "Sequence models and attention mechanisms."
+            }
+          ],
+          "externalLinks": [
+            {
+              "label": "DeepLearning.AI",
+              "url": "https://www.deeplearning.ai/"
+            }
+          ]
+        },
+        {
+          "id": "frameworks",
+          "label": "Frameworks",
+          "description": "PyTorch & TensorFlow.",
+          "externalLinks": [
+            {
+              "label": "PyTorch Tutorials",
+              "url": "https://pytorch.org/tutorials/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mlops",
+      "label": "MLOps",
+      "children": [
+        {
+          "id": "deployment",
+          "label": "Model Deployment",
+          "description": "Serving models via APIs (FastAPI, Flask, Docker).",
+          "externalLinks": [
+            {
+              "label": "FastAPI",
+              "url": "https://fastapi.tiangolo.com/"
+            }
+          ]
+        },
+        {
+          "id": "monitoring",
+          "label": "Monitoring",
+          "description": "Tracking model performance and data drift."
+        },
+        {
+          "id": "pipelines",
+          "label": " pipelines",
+          "description": "Automating workflows with tools like MLflow.",
+          "externalLinks": [
+            {
+              "label": "MLflow",
+              "url": "https://mlflow.org/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

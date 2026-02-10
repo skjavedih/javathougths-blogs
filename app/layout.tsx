@@ -60,7 +60,6 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-
   const basePath = process.env.BASE_PATH || ''
 
   return (
@@ -69,11 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <link
-        rel="apple-touch-icon"
-        sizes="76x76"
-        href={`${basePath}/static/images/logo-n.png`}
-      />
+      <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/images/logo-n.png`} />
       <link
         rel="icon"
         type="image/png"
@@ -87,11 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         href={`${basePath}/static/images/logo-n.png`}
       />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
-      <link
-        rel="mask-icon"
-        href={`${basePath}/static/images/logo-n.png`}
-        color="#5bbad5"
-      />
+      <link rel="mask-icon" href={`${basePath}/static/images/logo-n.png`} color="#5bbad5" />
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />

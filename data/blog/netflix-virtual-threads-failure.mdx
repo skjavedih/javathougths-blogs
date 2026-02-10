@@ -1,15 +1,15 @@
 ---
-title: "Netflix Experiments with Java 21 Virtual Threads — Why It Failed (For Now)"
-summary: "Netflix experimented with Java 21 Virtual Threads (Project Loom) in real production workloads."
-date: "2026-02-08"
-lastmod: "2026-02-08"
+title: 'Netflix Experiments with Java 21 Virtual Threads — Why It Failed (For Now)'
+summary: 'Netflix experimented with Java 21 Virtual Threads (Project Loom) in real production workloads.'
+date: '2026-02-08'
+lastmod: '2026-02-08'
 draft: false
-images: ["/static/images/netflix-virtual-tread-failed.png"]
-tags: ["Java", "Virtual Threads", "Netflix", "Locks"]
+images: ['/static/images/netflix-virtual-tread-failed.png']
+tags: ['Java', 'Virtual Threads', 'Netflix', 'Locks']
 ---
 
 ![System Design Interview Hero](/static/images/netflix-virtual-tread-failed.png)
-  
+
 > Netflix experimented with **Java 21 Virtual Threads (Project Loom)** in real production workloads.  
 > The idea was promising, but they hit **thread pinning and lock starvation issues** that made the system unstable at scale.  
 > Virtual Threads didn’t fail conceptually — **the experiment revealed sharp edges in early adoption**.
@@ -19,9 +19,9 @@ tags: ["Java", "Virtual Threads", "Netflix", "Locks"]
 Netflix runs **thousands of Java microservices** handling massive concurrent traffic.  
 Historically, they rely on:
 
-- Netty event loops  
-- Reactive programming (RxJava / Reactor)  
-- Carefully tuned thread pools  
+- Netty event loops
+- Reactive programming (RxJava / Reactor)
+- Carefully tuned thread pools
 
 These systems scale extremely well — but they are **complex to reason about, debug, and maintain**.
 
@@ -29,13 +29,13 @@ These systems scale extremely well — but they are **complex to reason about, d
 
 Java 21 introduced **Virtual Threads**, allowing:
 
-- Thread-per-request programming style  
-- Blocking I/O without massive thread costs  
-- Simpler, readable code compared to reactive pipelines  
+- Thread-per-request programming style
+- Blocking I/O without massive thread costs
+- Simpler, readable code compared to reactive pipelines
 
 For Netflix engineers, this raised a natural question:
 
-> *Can we simplify concurrency without sacrificing reliability at Netflix scale?*
+> _Can we simplify concurrency without sacrificing reliability at Netflix scale?_
 
 So they tried.
 
@@ -61,9 +61,9 @@ Then production traffic hit.
 
 Under real load, some services began showing:
 
-- Requests hanging indefinitely  
-- Sudden traffic timeouts  
-- Instances appearing *alive* but serving no traffic  
+- Requests hanging indefinitely
+- Sudden traffic timeouts
+- Instances appearing _alive_ but serving no traffic
 
 ### Thread Dumps Looked Confusing
 
@@ -71,7 +71,7 @@ Under real load, some services began showing:
 - Most appeared **parked or inactive**
 - No obvious deadlocks were visible
 
-To operators, the service looked *frozen*.
+To operators, the service looked _frozen_.
 
 ---
 
@@ -95,7 +95,7 @@ Pinning happens when:
 When this occurs:
 
 - The virtual thread **cannot unmount**
-- It stays *pinned* to its carrier OS thread
+- It stays _pinned_ to its carrier OS thread
 - The carrier thread becomes unusable
 
 At Netflix scale:
@@ -117,7 +117,7 @@ Netflix services:
 - Run at extreme concurrency levels
 - Share locks deep in frameworks and libraries
 
-Even *small* synchronized sections became catastrophic under load.
+Even _small_ synchronized sections became catastrophic under load.
 
 This is not a typical CRUD-app problem — it’s a **hyperscale problem**.
 
@@ -142,13 +142,16 @@ Later Java versions improve this, but **Java 21 was not “safe by default”** 
 Netflix engineers found ways to reduce the issue:
 
 ### 1. Replace `synchronized` with `ReentrantLock`
+
 - `ReentrantLock` does **not pin** virtual threads
 - Requires careful refactoring
 
 ### 2. Avoid Blocking Inside Locks
+
 - Especially I/O inside synchronized blocks
 
 ### 3. Deep Code Audits
+
 - Identify legacy synchronization hotspots
 - Extremely expensive at Netflix scale
 
@@ -174,11 +177,13 @@ This wasn’t failure — it was **valuable early feedback** for the Java ecosys
 ## What This Means for Everyone Else
 
 ### If You Are Netflix-Scale
+
 - Virtual Threads (Java 21) were risky
 - Lock-heavy systems need extreme care
 - Reactive models still dominate
 
-### If You Are *Not* Netflix-Scale
+### If You Are _Not_ Netflix-Scale
+
 Virtual Threads are often:
 
 - A huge win

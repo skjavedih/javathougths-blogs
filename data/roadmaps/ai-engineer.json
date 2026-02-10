@@ -1,0 +1,94 @@
+{
+  "id": "root",
+  "label": "AI Engineer",
+  "type": "root",
+  "children": [
+    {
+      "id": "foundation-ref",
+      "label": "Foundation",
+      "dataRef": "common-foundation"
+    },
+    {
+      "id": "nlp-llm",
+      "label": "NLP & LLMs",
+      "children": [
+        {
+          "id": "nlp",
+          "label": "NLP Fundamentals",
+          "description": "Tokenization, Embeddings, Named Entity Recognition.",
+          "externalLinks": [
+            {
+              "label": "HuggingFace Learn",
+              "url": "https://huggingface.co/learn"
+            }
+          ]
+        },
+        {
+          "id": "llms",
+          "label": "Large Language Models",
+          "description": "Transformer architecture, Pre-training, Fine-tuning."
+        },
+        {
+          "id": "prompt-eng",
+          "label": "Prompt Engineering",
+          "description": "Crafting inputs to guide model output.",
+          "externalLinks": [
+            {
+              "label": "PromptingGuide.ai",
+              "url": "https://www.promptingguide.ai/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rag-embeddings",
+      "label": "RAG & Embeddings",
+      "children": [
+        {
+          "id": "vector-db",
+          "label": "Vector Databases",
+          "description": "Storing and retrieving high-dimensional logic. (Pinecone, Chroma)."
+        },
+        {
+          "id": "rag",
+          "label": "RAG",
+          "description": "Retrieval Augmented Generation for grounding LLMs.",
+          "externalLinks": [
+            {
+              "label": "LlamaIndex",
+              "url": "https://www.llamaindex.ai/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "label": "AI Agents",
+      "children": [
+        {
+          "id": "tool-calling",
+          "label": "Tool Calling",
+          "description": "Enabling models to use external tools and APIs."
+        },
+        {
+          "id": "frameworks",
+          "label": "Agent Functionality",
+          "description": "Memory, Planning, and Reasoning loops.",
+          "externalLinks": [
+            {
+              "label": "LangChain",
+              "url": "https://python.langchain.com/docs/get_started/introduction"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "system-design",
+      "label": "AI System Design",
+      "description": "Scanning, caching, and architecting robust AI applications."
+    }
+  ]
+}

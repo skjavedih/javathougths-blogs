@@ -24,6 +24,6 @@ export default function Footer() {
           <Link href="/">{siteMetadata.title}</Link>
         </div>
       </div>
-    </footer >
+    </footer>
   )
 }

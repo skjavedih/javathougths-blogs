@@ -6,7 +6,6 @@ import { Fragment, useState, useEffect, useRef } from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
 
-
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
   const navRef = useRef(null)
@@ -104,6 +103,4 @@ const MobileNav = () => {
   )
 }
 
-
 export default MobileNav
-

@@ -41,7 +41,7 @@ export default function Home({ posts, pagination }) {
                                 alt={title}
                                 width={800}
                                 height={400}
-                                className="object-cover object-center w-full h-64 rounded-lg"
+                                className="h-64 w-full rounded-lg object-cover object-center"
                               />
                             </div>
                           )}
@@ -81,7 +81,11 @@ export default function Home({ posts, pagination }) {
         </ul>
       </div>
       {pagination && pagination.totalPages > 1 && (
-        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} basePath="" />
+        <Pagination
+          currentPage={pagination.currentPage}
+          totalPages={pagination.totalPages}
+          basePath=""
+        />
       )}
     </>
   )

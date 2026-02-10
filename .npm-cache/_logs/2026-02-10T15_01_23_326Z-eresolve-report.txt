@@ -1,0 +1,479 @@
+'Log files:
+/Users/javedshaikh/Desktop/Javed/Blogs/javathoughts/javathougths-blogs/.npm-cache/_logs/2026-02-10T15_01_23_326Z-debug-0.log
+
+# npm resolution error report
+
+While resolving: react-dom@18.3.1
+Found: react@19.0.0
+node_modules/react
+  peerOptional react@">= 16.8.0 < 20.0.0" from @docsearch/react@3.9.0
+  node_modules/@docsearch/react
+    @docsearch/react@"^3.6.2" from pliny@0.4.1
+    node_modules/pliny
+      pliny@"^0.4.1" from the root project
+  peer react@">=16.8.0" from @floating-ui/react@0.26.28
+  node_modules/@floating-ui/react
+    @floating-ui/react@"^0.26.16" from @headlessui/react@2.2.0
+    node_modules/@headlessui/react
+      @headlessui/react@"^2.2.0" from the root project
+  peer react@">=16.8.0" from @floating-ui/react-dom@2.1.6
+  node_modules/@floating-ui/react-dom
+    @floating-ui/react-dom@"^2.1.2" from @floating-ui/react@0.26.28
+    node_modules/@floating-ui/react
+      @floating-ui/react@"^0.26.16" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+  peer react@"^16 || ^17 || ^18 || ^19" from @giscus/react@3.1.0
+  node_modules/@giscus/react
+    @giscus/react@"^3.0.0" from pliny@0.4.1
+    node_modules/pliny
+      pliny@"^0.4.1" from the root project
+  peer react@"^18 || ^19 || ^19.0.0-rc" from @headlessui/react@2.2.0
+  node_modules/@headlessui/react
+    @headlessui/react@"^2.2.0" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-compose-refs@1.1.2
+  node_modules/@radix-ui/react-compose-refs
+    @radix-ui/react-compose-refs@"1.1.2" from @radix-ui/react-slot@1.2.4
+    node_modules/@radix-ui/react-slot
+      @radix-ui/react-slot@"1.2.4" from @radix-ui/react-primitive@2.1.4
+      node_modules/@radix-ui/react-primitive
+        @radix-ui/react-primitive@"2.1.4" from @radix-ui/react-portal@1.1.10
+        node_modules/@radix-ui/react-portal
+          @radix-ui/react-portal@"^1.0.1" from kbar@0.1.0-beta.45
+          node_modules/pliny/node_modules/kbar
+            kbar@"0.1.0-beta.45" from pliny@0.4.1
+            node_modules/pliny
+              pliny@"^0.4.1" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-portal@1.1.10
+  node_modules/@radix-ui/react-portal
+    @radix-ui/react-portal@"^1.0.1" from kbar@0.1.0-beta.45
+    node_modules/pliny/node_modules/kbar
+      kbar@"0.1.0-beta.45" from pliny@0.4.1
+      node_modules/pliny
+        pliny@"^0.4.1" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-primitive@2.1.4
+  node_modules/@radix-ui/react-primitive
+    @radix-ui/react-primitive@"2.1.4" from @radix-ui/react-portal@1.1.10
+    node_modules/@radix-ui/react-portal
+      @radix-ui/react-portal@"^1.0.1" from kbar@0.1.0-beta.45
+      node_modules/pliny/node_modules/kbar
+        kbar@"0.1.0-beta.45" from pliny@0.4.1
+        node_modules/pliny
+          pliny@"^0.4.1" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-slot@1.2.4
+  node_modules/@radix-ui/react-slot
+    @radix-ui/react-slot@"1.2.4" from @radix-ui/react-primitive@2.1.4
+    node_modules/@radix-ui/react-primitive
+      @radix-ui/react-primitive@"2.1.4" from @radix-ui/react-portal@1.1.10
+      node_modules/@radix-ui/react-portal
+        @radix-ui/react-portal@"^1.0.1" from kbar@0.1.0-beta.45
+        node_modules/pliny/node_modules/kbar
+          kbar@"0.1.0-beta.45" from pliny@0.4.1
+          node_modules/pliny
+            pliny@"^0.4.1" from the root project
+  peer react@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-use-layout-effect@1.1.1
+  node_modules/@radix-ui/react-use-layout-effect
+    @radix-ui/react-use-layout-effect@"1.1.1" from @radix-ui/react-portal@1.1.10
+    node_modules/@radix-ui/react-portal
+      @radix-ui/react-portal@"^1.0.1" from kbar@0.1.0-beta.45
+      node_modules/pliny/node_modules/kbar
+        kbar@"0.1.0-beta.45" from pliny@0.4.1
+        node_modules/pliny
+          pliny@"^0.4.1" from the root project
+  peer react@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-aria/focus@3.21.3
+  node_modules/@react-aria/focus
+    @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+    node_modules/@headlessui/react
+      @headlessui/react@"^2.2.0" from the root project
+  peer react@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-aria/interactions@3.26.0
+  node_modules/@react-aria/interactions
+    @react-aria/interactions@"^3.21.3" from @headlessui/react@2.2.0
+    node_modules/@headlessui/react
+      @headlessui/react@"^2.2.0" from the root project
+    @react-aria/interactions@"^3.26.0" from @react-aria/focus@3.21.3
+    node_modules/@react-aria/focus
+      @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+  peer react@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-aria/ssr@3.9.10
+  node_modules/@react-aria/ssr
+    @react-aria/ssr@"^3.9.10" from @react-aria/interactions@3.26.0
+    node_modules/@react-aria/interactions
+      @react-aria/interactions@"^3.21.3" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+      @react-aria/interactions@"^3.26.0" from @react-aria/focus@3.21.3
+      node_modules/@react-aria/focus
+        @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+    @react-aria/ssr@"^3.9.10" from @react-aria/utils@3.32.0
+    node_modules/@react-aria/utils
+      @react-aria/utils@"^3.32.0" from @react-aria/focus@3.21.3
+      node_modules/@react-aria/focus
+        @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+      @react-aria/utils@"^3.32.0" from @react-aria/interactions@3.26.0
+      node_modules/@react-aria/interactions
+        @react-aria/interactions@"^3.21.3" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+        @react-aria/interactions@"^3.26.0" from @react-aria/focus@3.21.3
+        node_modules/@react-aria/focus
+          @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+          node_modules/@headlessui/react
+            @headlessui/react@"^2.2.0" from the root project
+  peer react@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-aria/utils@3.32.0
+  node_modules/@react-aria/utils
+    @react-aria/utils@"^3.32.0" from @react-aria/focus@3.21.3
+    node_modules/@react-aria/focus
+      @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+    @react-aria/utils@"^3.32.0" from @react-aria/interactions@3.26.0
+    node_modules/@react-aria/interactions
+      @react-aria/interactions@"^3.21.3" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+      @react-aria/interactions@"^3.26.0" from @react-aria/focus@3.21.3
+      node_modules/@react-aria/focus
+        @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+  peer react@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-stately/utils@3.11.0
+  node_modules/@react-stately/utils
+    @react-stately/utils@"^3.11.0" from @react-aria/utils@3.32.0
+    node_modules/@react-aria/utils
+      @react-aria/utils@"^3.32.0" from @react-aria/focus@3.21.3
+      node_modules/@react-aria/focus
+        @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+      @react-aria/utils@"^3.32.0" from @react-aria/interactions@3.26.0
+      node_modules/@react-aria/interactions
+        @react-aria/interactions@"^3.21.3" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+        @react-aria/interactions@"^3.26.0" from @react-aria/focus@3.21.3
+        node_modules/@react-aria/focus
+          @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+          node_modules/@headlessui/react
+            @headlessui/react@"^2.2.0" from the root project
+  peer react@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-types/shared@3.32.1
+  node_modules/@react-types/shared
+    @react-types/shared@"^3.32.1" from @react-aria/focus@3.21.3
+    node_modules/@react-aria/focus
+      @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+    @react-types/shared@"^3.32.1" from @react-aria/interactions@3.26.0
+    node_modules/@react-aria/interactions
+      @react-aria/interactions@"^3.21.3" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+      @react-aria/interactions@"^3.26.0" from @react-aria/focus@3.21.3
+      node_modules/@react-aria/focus
+        @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+    @react-types/shared@"^3.32.1" from @react-aria/utils@3.32.0
+    node_modules/@react-aria/utils
+      @react-aria/utils@"^3.32.0" from @react-aria/focus@3.21.3
+      node_modules/@react-aria/focus
+        @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+      @react-aria/utils@"^3.32.0" from @react-aria/interactions@3.26.0
+      node_modules/@react-aria/interactions
+        @react-aria/interactions@"^3.21.3" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+        @react-aria/interactions@"^3.26.0" from @react-aria/focus@3.21.3
+        node_modules/@react-aria/focus
+          @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+          node_modules/@headlessui/react
+            @headlessui/react@"^2.2.0" from the root project
+  peer react@"^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" from @tanstack/react-virtual@3.13.13
+  node_modules/@tanstack/react-virtual
+    @tanstack/react-virtual@"^3.8.1" from @headlessui/react@2.2.0
+    node_modules/@headlessui/react
+      @headlessui/react@"^2.2.0" from the root project
+  peer react@"^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0" from next@15.2.4
+  node_modules/next
+    peer next@">=12.0.0" from next-contentlayer2@0.5.8
+    node_modules/next-contentlayer2
+      next-contentlayer2@"^0.5.3" from pliny@0.4.1
+      node_modules/pliny
+        pliny@"^0.4.1" from the root project
+      next-contentlayer2@"^0.5.8" from the root project
+    peer next@">=13.0.0" from pliny@0.4.1
+    node_modules/pliny
+      pliny@"^0.4.1" from the root project
+    next@"latest" from the root project
+  peer react@"^18 || ^19 || ^19.0.0-rc" from next-contentlayer2@0.5.8
+  node_modules/next-contentlayer2
+    next-contentlayer2@"^0.5.3" from pliny@0.4.1
+    node_modules/pliny
+      pliny@"^0.4.1" from the root project
+    next-contentlayer2@"^0.5.8" from the root project
+  peer react@"^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc" from next-themes@0.4.6
+  node_modules/next-themes
+    next-themes@"^0.4.6" from the root project
+  peer react@"^17.0.2 || ^18 || ^19 || ^19.0.0-rc" from pliny@0.4.1
+  node_modules/pliny
+    pliny@"^0.4.1" from the root project
+  peer react@">= 16.8.0 || 17.x.x || ^18.0.0-0 || ^19.0.0-0" from styled-jsx@5.1.6
+  node_modules/styled-jsx
+    styled-jsx@"5.1.6" from next@15.2.4
+    node_modules/next
+      peer next@">=12.0.0" from next-contentlayer2@0.5.8
+      node_modules/next-contentlayer2
+        next-contentlayer2@"^0.5.3" from pliny@0.4.1
+        node_modules/pliny
+          pliny@"^0.4.1" from the root project
+        next-contentlayer2@"^0.5.8" from the root project
+      peer next@">=13.0.0" from pliny@0.4.1
+      node_modules/pliny
+        pliny@"^0.4.1" from the root project
+      next@"latest" from the root project
+  react@"latest" from the root project
+
+Could not resolve dependency:
+peer react@"^18.3.1" from react-dom@18.3.1
+node_modules/react-dom
+  peerOptional react-dom@">= 16.8.0 < 20.0.0" from @docsearch/react@3.9.0
+  node_modules/@docsearch/react
+    @docsearch/react@"^3.6.2" from pliny@0.4.1
+    node_modules/pliny
+      pliny@"^0.4.1" from the root project
+  peer react-dom@">=16.8.0" from @floating-ui/react@0.26.28
+  node_modules/@floating-ui/react
+    @floating-ui/react@"^0.26.16" from @headlessui/react@2.2.0
+    node_modules/@headlessui/react
+      @headlessui/react@"^2.2.0" from the root project
+  peer react-dom@">=16.8.0" from @floating-ui/react-dom@2.1.6
+  node_modules/@floating-ui/react-dom
+    @floating-ui/react-dom@"^2.1.2" from @floating-ui/react@0.26.28
+    node_modules/@floating-ui/react
+      @floating-ui/react@"^0.26.16" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+  peer react-dom@"^16 || ^17 || ^18 || ^19" from @giscus/react@3.1.0
+  node_modules/@giscus/react
+    @giscus/react@"^3.0.0" from pliny@0.4.1
+    node_modules/pliny
+      pliny@"^0.4.1" from the root project
+  peer react-dom@"^18 || ^19 || ^19.0.0-rc" from @headlessui/react@2.2.0
+  node_modules/@headlessui/react
+    @headlessui/react@"^2.2.0" from the root project
+  peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-portal@1.1.10
+  node_modules/@radix-ui/react-portal
+    @radix-ui/react-portal@"^1.0.1" from kbar@0.1.0-beta.45
+    node_modules/pliny/node_modules/kbar
+      kbar@"0.1.0-beta.45" from pliny@0.4.1
+      node_modules/pliny
+        pliny@"^0.4.1" from the root project
+  peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-primitive@2.1.4
+  node_modules/@radix-ui/react-primitive
+    @radix-ui/react-primitive@"2.1.4" from @radix-ui/react-portal@1.1.10
+    node_modules/@radix-ui/react-portal
+      @radix-ui/react-portal@"^1.0.1" from kbar@0.1.0-beta.45
+      node_modules/pliny/node_modules/kbar
+        kbar@"0.1.0-beta.45" from pliny@0.4.1
+        node_modules/pliny
+          pliny@"^0.4.1" from the root project
+  peer react-dom@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-aria/focus@3.21.3
+  node_modules/@react-aria/focus
+    @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+    node_modules/@headlessui/react
+      @headlessui/react@"^2.2.0" from the root project
+  peer react-dom@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-aria/interactions@3.26.0
+  node_modules/@react-aria/interactions
+    @react-aria/interactions@"^3.21.3" from @headlessui/react@2.2.0
+    node_modules/@headlessui/react
+      @headlessui/react@"^2.2.0" from the root project
+    @react-aria/interactions@"^3.26.0" from @react-aria/focus@3.21.3
+    node_modules/@react-aria/focus
+      @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+  peer react-dom@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-aria/utils@3.32.0
+  node_modules/@react-aria/utils
+    @react-aria/utils@"^3.32.0" from @react-aria/focus@3.21.3
+    node_modules/@react-aria/focus
+      @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+    @react-aria/utils@"^3.32.0" from @react-aria/interactions@3.26.0
+    node_modules/@react-aria/interactions
+      @react-aria/interactions@"^3.21.3" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+      @react-aria/interactions@"^3.26.0" from @react-aria/focus@3.21.3
+      node_modules/@react-aria/focus
+        @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+  peer react-dom@"^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" from @tanstack/react-virtual@3.13.13
+  node_modules/@tanstack/react-virtual
+    @tanstack/react-virtual@"^3.8.1" from @headlessui/react@2.2.0
+    node_modules/@headlessui/react
+      @headlessui/react@"^2.2.0" from the root project
+  peer react-dom@"^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0" from next@15.2.4
+  node_modules/next
+    peer next@">=12.0.0" from next-contentlayer2@0.5.8
+    node_modules/next-contentlayer2
+      next-contentlayer2@"^0.5.3" from pliny@0.4.1
+      node_modules/pliny
+        pliny@"^0.4.1" from the root project
+      next-contentlayer2@"^0.5.8" from the root project
+    peer next@">=13.0.0" from pliny@0.4.1
+    node_modules/pliny
+      pliny@"^0.4.1" from the root project
+    next@"latest" from the root project
+  peer react-dom@"^18 || ^19 || ^19.0.0-rc" from next-contentlayer2@0.5.8
+  node_modules/next-contentlayer2
+    next-contentlayer2@"^0.5.3" from pliny@0.4.1
+    node_modules/pliny
+      pliny@"^0.4.1" from the root project
+    next-contentlayer2@"^0.5.8" from the root project
+  peer react-dom@"^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc" from next-themes@0.4.6
+  node_modules/next-themes
+    next-themes@"^0.4.6" from the root project
+  peer react-dom@"^17.0.2 || ^18 || ^19 || ^19.0.0-rc" from pliny@0.4.1
+  node_modules/pliny
+    pliny@"^0.4.1" from the root project
+  peer react-dom@"^16.0.0 || ^17.0.0 || ^18.0.0" from kbar@0.1.0-beta.45
+  node_modules/pliny/node_modules/kbar
+    kbar@"0.1.0-beta.45" from pliny@0.4.1
+    node_modules/pliny
+      pliny@"^0.4.1" from the root project
+  peer react-dom@"^16.8 || ^17 || ^18" from next-themes@0.3.0
+  node_modules/pliny/node_modules/next-themes
+    next-themes@"^0.3.0" from pliny@0.4.1
+    node_modules/pliny
+      pliny@"^0.4.1" from the root project
+  react-dom@"latest" from the root project
+
+Conflicting peer dependency: react@18.3.1
+node_modules/react
+  peer react@"^18.3.1" from react-dom@18.3.1
+  node_modules/react-dom
+    peerOptional react-dom@">= 16.8.0 < 20.0.0" from @docsearch/react@3.9.0
+    node_modules/@docsearch/react
+      @docsearch/react@"^3.6.2" from pliny@0.4.1
+      node_modules/pliny
+        pliny@"^0.4.1" from the root project
+    peer react-dom@">=16.8.0" from @floating-ui/react@0.26.28
+    node_modules/@floating-ui/react
+      @floating-ui/react@"^0.26.16" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+    peer react-dom@">=16.8.0" from @floating-ui/react-dom@2.1.6
+    node_modules/@floating-ui/react-dom
+      @floating-ui/react-dom@"^2.1.2" from @floating-ui/react@0.26.28
+      node_modules/@floating-ui/react
+        @floating-ui/react@"^0.26.16" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+    peer react-dom@"^16 || ^17 || ^18 || ^19" from @giscus/react@3.1.0
+    node_modules/@giscus/react
+      @giscus/react@"^3.0.0" from pliny@0.4.1
+      node_modules/pliny
+        pliny@"^0.4.1" from the root project
+    peer react-dom@"^18 || ^19 || ^19.0.0-rc" from @headlessui/react@2.2.0
+    node_modules/@headlessui/react
+      @headlessui/react@"^2.2.0" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-portal@1.1.10
+    node_modules/@radix-ui/react-portal
+      @radix-ui/react-portal@"^1.0.1" from kbar@0.1.0-beta.45
+      node_modules/pliny/node_modules/kbar
+        kbar@"0.1.0-beta.45" from pliny@0.4.1
+        node_modules/pliny
+          pliny@"^0.4.1" from the root project
+    peer react-dom@"^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc" from @radix-ui/react-primitive@2.1.4
+    node_modules/@radix-ui/react-primitive
+      @radix-ui/react-primitive@"2.1.4" from @radix-ui/react-portal@1.1.10
+      node_modules/@radix-ui/react-portal
+        @radix-ui/react-portal@"^1.0.1" from kbar@0.1.0-beta.45
+        node_modules/pliny/node_modules/kbar
+          kbar@"0.1.0-beta.45" from pliny@0.4.1
+          node_modules/pliny
+            pliny@"^0.4.1" from the root project
+    peer react-dom@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-aria/focus@3.21.3
+    node_modules/@react-aria/focus
+      @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+    peer react-dom@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-aria/interactions@3.26.0
+    node_modules/@react-aria/interactions
+      @react-aria/interactions@"^3.21.3" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+      @react-aria/interactions@"^3.26.0" from @react-aria/focus@3.21.3
+      node_modules/@react-aria/focus
+        @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+    peer react-dom@"^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1" from @react-aria/utils@3.32.0
+    node_modules/@react-aria/utils
+      @react-aria/utils@"^3.32.0" from @react-aria/focus@3.21.3
+      node_modules/@react-aria/focus
+        @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+      @react-aria/utils@"^3.32.0" from @react-aria/interactions@3.26.0
+      node_modules/@react-aria/interactions
+        @react-aria/interactions@"^3.21.3" from @headlessui/react@2.2.0
+        node_modules/@headlessui/react
+          @headlessui/react@"^2.2.0" from the root project
+        @react-aria/interactions@"^3.26.0" from @react-aria/focus@3.21.3
+        node_modules/@react-aria/focus
+          @react-aria/focus@"^3.17.1" from @headlessui/react@2.2.0
+          node_modules/@headlessui/react
+            @headlessui/react@"^2.2.0" from the root project
+    peer react-dom@"^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" from @tanstack/react-virtual@3.13.13
+    node_modules/@tanstack/react-virtual
+      @tanstack/react-virtual@"^3.8.1" from @headlessui/react@2.2.0
+      node_modules/@headlessui/react
+        @headlessui/react@"^2.2.0" from the root project
+    peer react-dom@"^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0" from next@15.2.4
+    node_modules/next
+      peer next@">=12.0.0" from next-contentlayer2@0.5.8
+      node_modules/next-contentlayer2
+        next-contentlayer2@"^0.5.3" from pliny@0.4.1
+        node_modules/pliny
+          pliny@"^0.4.1" from the root project
+        next-contentlayer2@"^0.5.8" from the root project
+      peer next@">=13.0.0" from pliny@0.4.1
+      node_modules/pliny
+        pliny@"^0.4.1" from the root project
+      next@"latest" from the root project
+    peer react-dom@"^18 || ^19 || ^19.0.0-rc" from next-contentlayer2@0.5.8
+    node_modules/next-contentlayer2
+      next-contentlayer2@"^0.5.3" from pliny@0.4.1
+      node_modules/pliny
+        pliny@"^0.4.1" from the root project
+      next-contentlayer2@"^0.5.8" from the root project
+    peer react-dom@"^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc" from next-themes@0.4.6
+    node_modules/next-themes
+      next-themes@"^0.4.6" from the root project
+    peer react-dom@"^17.0.2 || ^18 || ^19 || ^19.0.0-rc" from pliny@0.4.1
+    node_modules/pliny
+      pliny@"^0.4.1" from the root project
+    peer react-dom@"^16.0.0 || ^17.0.0 || ^18.0.0" from kbar@0.1.0-beta.45
+    node_modules/pliny/node_modules/kbar
+      kbar@"0.1.0-beta.45" from pliny@0.4.1
+      node_modules/pliny
+        pliny@"^0.4.1" from the root project
+    peer react-dom@"^16.8 || ^17 || ^18" from next-themes@0.3.0
+    node_modules/pliny/node_modules/next-themes
+      next-themes@"^0.3.0" from pliny@0.4.1
+      node_modules/pliny
+        pliny@"^0.4.1" from the root project
+    react-dom@"latest" from the root project
+
+Fix the upstream dependency conflict, or retry
+this command with --force or --legacy-peer-deps
+to accept an incorrect (and potentially broken) dependency resolution.

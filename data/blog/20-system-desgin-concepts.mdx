@@ -1,11 +1,11 @@
 ---
-title: "20 System Design Concepts Every Developer Should Know"
-date: "2025-12-27"
-lastmod: "2025-12-27"
+title: '20 System Design Concepts Every Developer Should Know'
+date: '2025-12-27'
+lastmod: '2025-12-27'
 draft: false
-summary: "A practical guide to core system design concepts with definitions, examples, diagrams, and interview tips."
-tags: ["System Design", "Architecture", "Backend", "Java", "Microservices"]
-images: ["/static/images/system-design/load-balancing.png"]
+summary: 'A practical guide to core system design concepts with definitions, examples, diagrams, and interview tips.'
+tags: ['System Design', 'Architecture', 'Backend', 'Java', 'Microservices']
+images: ['/static/images/system-design/load-balancing.png']
 ---
 
 # Introduction
@@ -22,10 +22,12 @@ In this guide, we break down **20 essential system design concepts** with clear 
 The process of distributing incoming network traffic across multiple servers to ensure no single server becomes overwhelmed.
 
 **Real-World Example:**
+
 - **Nginx/HAProxy:** Distributing HTTP requests to a cluster of web servers.
 - **AWS ELB:** automatically routing user traffic to healthy EC2 instances.
 
 **Visual:**
+
 ```
        [User]
           |
@@ -52,10 +54,12 @@ The process of distributing incoming network traffic across multiple servers to 
 Storing copies of frequently accessed data in a temporary, high-speed storage layer (RAM) to speed up subsequent requests.
 
 **Real-World Example:**
+
 - **Redis:** Storing user session data or leaderboard scores in memory.
 - **Browser Cache:** Storing static assets (CSS, images) locally on the user's device.
 
 **Visual:**
+
 ```
 [App] -> [Cache (Redis)] --(Hit)--> Return Data
                 |
@@ -82,6 +86,7 @@ Storing copies of frequently accessed data in a temporary, high-speed storage la
 Splitting a large dataset into smaller, manageable chunks (shards) distributed across multiple servers, usually based on a "shard key" (e.g., User ID).
 
 **Real-World Example:**
+
 - **Instagram:** Sharding photo metadata based on User ID.
 - **Discord:** Sharding message history based on Channel ID.
 
@@ -103,6 +108,7 @@ Splitting a large dataset into smaller, manageable chunks (shards) distributed a
 Keeping copies of the same data on multiple machines to ensure data availability and redundancy.
 
 **Real-World Example:**
+
 - **Master-Slave:** One primary DB for writes, multiple read-replicas for reads (e.g., PostgreSQL).
 - **Multi-Region:** Replicating data across US-East and EU-West for disaster recovery.
 
@@ -124,6 +130,7 @@ Keeping copies of the same data on multiple machines to ensure data availability
 A distributed system can deliver only two of three guarantees: **Consistency** (every read receives the most recent write), **Availability** (every request receives a response), and **Partition Tolerance** (system continues despite network failures).
 
 **Real-World Example:**
+
 - **CP (Consistency + Partition Tolerance):** Banking systems (ATM) where accuracy is critical.
 - **AP (Availability + Partition Tolerance):** Social media structure where seeing a slightly old post is acceptable.
 
@@ -145,6 +152,7 @@ A distributed system can deliver only two of three guarantees: **Consistency** (
 A hashing technique used in distributed systems (like caches) to minimize data movement when nodes are added or removed. Ideally, only `K/n` keys need remapping.
 
 **Real-World Example:**
+
 - **DynamoDB / Cassandra:** Distributing data across nodes in a ring topology.
 - **Discord:** Routing voice chat traffic to specific nodes.
 
@@ -166,10 +174,12 @@ A hashing technique used in distributed systems (like caches) to minimize data m
 A buffer that enables asynchronous communication between services. Producers send messages; consumers process them at their own pace.
 
 **Real-World Example:**
+
 - **Email Sending:** User clicks "Sign Up" → Job added to queue → Worker sends email later.
 - **Video Processing:** Youtube upload → Queue → Background transcoding service.
 
 **Visual:**
+
 ```
 [Order Svc] --> [Queue (Kafka/SQS)] --> [Shipping Svc]
 ```
@@ -192,6 +202,7 @@ A buffer that enables asynchronous communication between services. Producers sen
 Controlling the number of requests a user can send to a system within a specific time frame to prevent abuse.
 
 **Real-World Example:**
+
 - **Twitter API:** Limiting users to 500 tweets per day.
 - **Login:** Blocking IP after 5 failed password attempts.
 
@@ -213,6 +224,7 @@ Controlling the number of requests a user can send to a system within a specific
 A single entry point for client requests that routes them to appropriate microservices. It often handles cross-cutting concerns like auth, logging, and rate limiting.
 
 **Real-World Example:**
+
 - **Netflix Zuul:** Routes millions of requests to catalog, user, and playback services.
 - **AWS API Gateway:** Frontend for Serverless functions.
 
@@ -234,6 +246,7 @@ A single entry point for client requests that routes them to appropriate microse
 An architectural style where an application is built as a collection of small, independent services that communicate over APIs.
 
 **Real-World Example:**
+
 - **Uber:** Separate services for Passenger Management, Driver Tracking, and Payments.
 - **Amazon:** Hundreds of services for Product Page, Recommendations, Cart, etc.
 
@@ -258,6 +271,7 @@ See [Service Mesh Explained](/blog/service-mesh-pattern) for how to manage commu
 A mechanism for services to automatically detect and find the network location (IP + Port) of other services in a dynamic environment (like Kubernetes).
 
 **Real-World Example:**
+
 - **Consul / Eureka:** Registry where services register themselves on startup.
 - **Kubernetes DNS:** Resolving `my-service.default.svc.cluster.local`.
 
@@ -279,18 +293,14 @@ A mechanism for services to automatically detect and find the network location (
 A geographically distributed network of proxy servers that serve static content from a location closest to the user.
 
 **Real-World Example:**
+
 - **Cloudflare / Akamai:** Serving images, CSS, and JS files from a server in London for a user in London, even if the main DB is in New York.
 - **Video Streaming:** Netflix Open Connect.
 
 **💡 Interview Tip:**  
 "CDNs drastically reduce latency (TTFB) and offload static traffic from your origin servers. For a global app, a CDN is mandatory for a good UX."
 
-<Image
-  src="/static/images/system-design/cdn.png"
-  alt="CDN Diagram"
-  width={800}
-  height={400}
-/>
+<Image src="/static/images/system-design/cdn.png" alt="CDN Diagram" width={800} height={400} />
 
 ---
 
@@ -300,6 +310,7 @@ A geographically distributed network of proxy servers that serve static content 
 A data structure (like B-Tree) that improves the speed of data retrieval operations on a database table at the cost of additional writes and storage space.
 
 **Real-World Example:**
+
 - Indexing the `email` column in a user table to make `SELECT * FROM users WHERE email=?` instant.
 
 **💡 Interview Tip:**  
@@ -320,6 +331,7 @@ A data structure (like B-Tree) that improves the speed of data retrieval operati
 The general concept of dividing data. Sharding (mentioned above) is a form of horizontal partitioning. Vertical partitioning splits tables by columns (e.g., storing CLOBs separately).
 
 **Real-World Example:**
+
 - **Time-based partitioning:** Storing logs in daily tables (`access_logs_2025_12_27`).
 
 **💡 Interview Tip:**  
@@ -340,6 +352,7 @@ The general concept of dividing data. Sharding (mentioned above) is a form of ho
 A consistency model used in distributed computing where the system guarantees that if no new updates are made to a given data item, eventually all accesses to that item will return the last updated value.
 
 **Real-World Example:**
+
 - **DNS Propagation:** Changing a domain IP takes minutes/hours to reflect globally.
 - **Social Media Follows:** You follow someone, but your friend doesn't see it on their feed for a few seconds.
 
@@ -361,10 +374,12 @@ A consistency model used in distributed computing where the system guarantees th
 A persistent, full-duplex communication channel over a single TCP connection, allowing the server to push updates to the client in real-time.
 
 **Real-World Example:**
+
 - **Chat Apps:** WhatsApp / Slack.
 - **Live Sports Scores:** Updating scoreboards without refreshing the page.
 
 **Visual:**
+
 ```
 [Client] <====(Persistent Connection)====> [Server]
 ```
@@ -387,6 +402,7 @@ A persistent, full-duplex communication channel over a single TCP connection, al
 The capability of a system to handle a growing amount of work by adding resources.
 
 **Types:**
+
 - **Vertical (Scale Up):** Adding more RAM/CPU to a single server.
 - **Horizontal (Scale Out):** Adding more servers to the pool.
 
@@ -408,6 +424,7 @@ The capability of a system to handle a growing amount of work by adding resource
 The ability of a system to continue operating properly in the event of the failure of some of its components.
 
 **Real-World Example:**
+
 - **RAID:** Hard drive failure doesn't result in data loss.
 - **Kubernetes:** Automatically restarting crashed pods.
 
@@ -429,6 +446,7 @@ The ability of a system to continue operating properly in the event of the failu
 Collecting metrics, logs, and traces to understand the internal state of the system and detect issues before users do.
 
 **Real-World Example:**
+
 - **Prometheus/Grafana:** Visualizing CPU usage and Request Latency (p99).
 - **Datadog/NewRelic:** Full stack monitoring.
 
@@ -450,9 +468,11 @@ Collecting metrics, logs, and traces to understand the internal state of the sys
 A design pattern used to detect failures and encapsulate the logic of preventing a failure from constantly recurring (e.g., during maintenance or temporary external system failure).
 
 **Real-World Example:**
+
 - **Netflix Hystrix:** If the Recommendation Service is slow/down, the Netflix app stops calling it and shows a "Popular Movies" fallback list instead of a spinning loader.
 
 **Visual:**
+
 ```
 [Circuit Closed] -> Flow Normal
 [Circuit Open]   -> Fail Fast (Return Error/Fallback immediately)
@@ -476,5 +496,6 @@ A design pattern used to detect failures and encapsulate the logic of preventing
 Mastering these 20 concepts helps you move from being a "coder" to an "architect." In system design interviews, knowing the **definition** gets you points, but explaining the **trade-offs** (the "Interview Tips" above) gets you the job.
 
 **Next Steps:**
+
 - Read about [Service Mesh](/blog/service-mesh-pattern) to see how many of these concepts come together in infrastructure.
 - Check out the [Algorithm visualizer](https://algorithm-visualizer.org/) to see consistent hashing in action.

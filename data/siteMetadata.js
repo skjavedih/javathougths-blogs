@@ -3,7 +3,8 @@ const siteMetadata = {
   title: 'Javathoughts Blog',
   author: 'Javed Shaikh',
   headerTitle: 'Javathoughts Blogs',
-  description: 'Java & System Design Mastery Hub — Learn Scalable Architecture, AI Integration, and Java Best Practices.',
+  description:
+    'Java & System Design Mastery Hub — Learn Scalable Architecture, AI Integration, and Java Best Practices.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.javathoughts.com',

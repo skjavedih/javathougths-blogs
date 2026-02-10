@@ -6,7 +6,9 @@
     "@tailwindcss/postcss": "^4.0.5",
     "@tailwindcss/typography": "^0.5.15",
     "body-scroll-lock": "^4.0.0-beta.0",
+    "clsx": "^2.1.1",
     "contentlayer2": "^0.5.8",
+    "d3": "^7.9.0",
     "esbuild": "^0.25.2",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.2",
@@ -18,7 +20,7 @@
     "pliny": "^0.4.1",
     "postcss": "^8.4.24",
     "prettier": "^3.0.0",
-    "react": "latest",
+    "react": "^18.3.1",
     "react-dom": "latest",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^7.1.0",
@@ -32,6 +34,8 @@
     "remark-gfm": "^4.0.0",
     "remark-github-blockquote-alert": "^1.2.1",
     "remark-math": "^6.0.0",
+    "rss": "^1.2.2",
+    "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.0.5",
     "unist-util-visit": "^5.0.0"
   },
@@ -39,8 +43,10 @@
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.16.0",
     "@svgr/webpack": "^8.0.1",
+    "@types/d3": "^7.4.3",
     "@types/mdx": "^2.0.12",
     "@types/react": "^19.0.8",
+    "@types/rss": "^0.0.32",
     "@typescript-eslint/eslint-plugin": "^8.12.0",
     "@typescript-eslint/parser": "^8.12.0",
     "cross-env": "^7.0.3",
@@ -55,10 +61,10 @@
     "typescript": "^5.1.3"
   },
   "scripts": {
-    "build": "contentlayer2 build && next build --webpack",
-    "dev": "next dev --webpack",
+    "build": "contentlayer2 build && next build",
+    "dev": "next dev",
     "contentlayer2:build": "contentlayer2 build",
     "next:dev": "next dev",
-    "vercel-build": "contentlayer2 build && next build --webpack"
+    "vercel-build": "contentlayer2 build && next build"
   }
 }

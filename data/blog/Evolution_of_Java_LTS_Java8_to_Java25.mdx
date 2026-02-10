@@ -1,11 +1,21 @@
 ---
-title: "Evolution of Java LTS Versions: From Java 8 to Java 25 – Key Features and Why Upgrade"
-date: "2026-01-13"
-lastmod: "2026-01-13"
+title: 'Evolution of Java LTS Versions: From Java 8 to Java 25 – Key Features and Why Upgrade'
+date: '2026-01-13'
+lastmod: '2026-01-13'
 draft: false
-tags: [ "Java", "Java LTS", "Java LTS Features", "Backend Development", "System Design", "Microservices", "Cloud Native Java", "Performance Optimization"]
-images: ["/static/images/java-21-virtual-threads.png"]
-summary: "Complete evolution of Java LTS versions from Java 8 to Java 25 with key features, real-world use cases, performance improvements, migration tips, comparison tables, visuals, and guidance for choosing the right Java LTS in 2026."
+tags:
+  [
+    'Java',
+    'Java LTS',
+    'Java LTS Features',
+    'Backend Development',
+    'System Design',
+    'Microservices',
+    'Cloud Native Java',
+    'Performance Optimization',
+  ]
+images: ['/static/images/java-21-virtual-threads.png']
+summary: 'Complete evolution of Java LTS versions from Java 8 to Java 25 with key features, real-world use cases, performance improvements, migration tips, comparison tables, visuals, and guidance for choosing the right Java LTS in 2026.'
 ---
 
 ## Introduction: Why Java LTS Versions Matter for Enterprise Developers
@@ -15,6 +25,7 @@ Java continues to power enterprise systems, financial platforms, backend service
 That is where Long-Term Support (LTS) releases become critical.
 
 ### Why Java LTS is critical
+
 - Long-term security updates and bug fixes
 - Stability for mission-critical systems
 - Vendor-backed support (Oracle, Red Hat, Azul, Amazon Corretto)
@@ -42,6 +53,7 @@ timeline
 ## Java 8 LTS – The Foundation of Modern Java (2014)
 
 ### Key Features
+
 - Lambda Expressions
 - Stream API
 - Optional
@@ -50,6 +62,7 @@ timeline
 - CompletableFuture
 
 ### Code Example
+
 ```java
 List<String> activeUsers = users.stream()
     .filter(User::isActive)
@@ -58,15 +71,18 @@ List<String> activeUsers = users.stream()
 ```
 
 ### Real-World Use Cases
+
 - Functional-style data processing
 - Parallel execution pipelines
 - Cleaner and expressive APIs
 
 ### Performance Improvements
+
 - Improved CPU utilization
 - Parallel stream execution
 
 ### Migration Tip
+
 Java 8 is not recommended in 2026 due to security and dependency risks.
 
 ---
@@ -74,6 +90,7 @@ Java 8 is not recommended in 2026 due to security and dependency risks.
 ## Java 11 LTS – Enterprise Modernization (2018)
 
 ### Key Features
+
 - Standard HTTP Client (HTTP/2)
 - Flight Recorder and Mission Control
 - Lambda parameter var
@@ -82,6 +99,7 @@ Java 8 is not recommended in 2026 due to security and dependency risks.
 - Removal of Java EE modules
 
 ### Code Example
+
 ```java
 HttpClient client = HttpClient.newHttpClient();
 HttpRequest request = HttpRequest.newBuilder()
@@ -94,16 +112,19 @@ HttpResponse<String> response =
 ```
 
 ### Use Cases
+
 - Microservice communication
 - Production profiling
 - Modern HTTP handling
 
 ### Performance Improvements
+
 - Faster startup
 - Reduced memory footprint
 - Improved G1 GC
 
 ### Migration Tips
+
 - Replace HttpURLConnection
 - Remove Java EE dependencies
 - Enable Flight Recorder
@@ -113,6 +134,7 @@ HttpResponse<String> response =
 ## Java 17 LTS – Productivity & Safety (2021)
 
 ### Key Features
+
 - Sealed Classes
 - Pattern Matching for instanceof
 - Foreign Function & Memory API (Incubator)
@@ -121,6 +143,7 @@ HttpResponse<String> response =
 - Finalization deprecated
 
 ### Code Example
+
 ```java
 public sealed abstract class Shape
     permits Circle, Rectangle {}
@@ -130,10 +153,12 @@ final class Rectangle extends Shape {}
 ```
 
 ### Performance Improvements
+
 - Better JIT optimizations
 - Improved garbage collection
 
 ### Migration Tips
+
 - Fix illegal reflective access
 - Modularize applications
 
@@ -142,6 +167,7 @@ final class Rectangle extends Shape {}
 ## Java 21 LTS – Concurrency Revolution (2023)
 
 ### Key Features
+
 - Virtual Threads (Project Loom)
 - Structured Concurrency
 - Scoped Values
@@ -150,6 +176,7 @@ final class Rectangle extends Shape {}
 - String Templates
 
 ### Code Example
+
 ```java
 try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
     executor.submit(() -> handleRequest());
@@ -157,10 +184,12 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
 ```
 
 ### Performance Improvements
+
 - Massive concurrency scalability
 - Reduced memory per thread
 
 ### Migration Tips
+
 - Replace thread pools
 - Adopt structured concurrency gradually
 
@@ -169,6 +198,7 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
 ## Java 25 LTS – Cloud-Native & AI-Ready (2025)
 
 ### Key Features
+
 - Value Types
 - Project Panama stabilized
 - Built-in JVM telemetry
@@ -177,15 +207,18 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
 - Advanced pattern matching
 
 ### Code Example
+
 ```java
 public value Person(String name, int age) {}
 ```
 
 ### Performance Improvements
+
 - Reduced GC pressure
 - Faster container startup
 
 ### Migration Tips
+
 - Use value types for DTOs
 - Adopt telemetry APIs
 
@@ -193,14 +226,14 @@ public value Person(String name, int age) {}
 
 ## Java LTS Comparison Table
 
-| Feature | Java 11 | Java 17 | Java 21 | Java 25 |
-|------|------|------|------|------|
-| HTTP Client | ✅ | ✅ | ✅ | ✅ |
-| Sealed Classes | ❌ | ✅ | ✅ | ✅ |
-| Virtual Threads | ❌ | ❌ | ✅ | Enhanced |
-| Structured Concurrency | ❌ | ❌ | ✅ | Enhanced |
-| Value Types | ❌ | ❌ | ❌ | ✅ |
-| Native Interop | Incubator | Incubator | Improved | Stable |
+| Feature                | Java 11   | Java 17   | Java 21  | Java 25  |
+| ---------------------- | --------- | --------- | -------- | -------- |
+| HTTP Client            | ✅        | ✅        | ✅       | ✅       |
+| Sealed Classes         | ❌        | ✅        | ✅       | ✅       |
+| Virtual Threads        | ❌        | ❌        | ✅       | Enhanced |
+| Structured Concurrency | ❌        | ❌        | ✅       | Enhanced |
+| Value Types            | ❌        | ❌        | ❌       | ✅       |
+| Native Interop         | Incubator | Incubator | Improved | Stable   |
 
 ---
 
@@ -215,11 +248,11 @@ public value Person(String name, int age) {}
 
 ## Choosing the Right Java LTS in 2026
 
-| Scenario | Recommended LTS |
-|--------|----------------|
-| Legacy systems | Java 17 |
-| Cloud-native apps | Java 21 or Java 25 |
-| High-performance systems | Java 25 |
+| Scenario                 | Recommended LTS    |
+| ------------------------ | ------------------ |
+| Legacy systems           | Java 17            |
+| Cloud-native apps        | Java 21 or Java 25 |
+| High-performance systems | Java 25            |
 
 ---
 
@@ -228,6 +261,7 @@ public value Person(String name, int age) {}
 Java LTS releases are strategic investments in performance, scalability, and maintainability.
 
 **Action Items**
+
 - Audit your Java version
 - Upgrade incrementally
 - Benchmark performance

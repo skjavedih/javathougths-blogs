@@ -1,11 +1,11 @@
 ---
-title: "How Shopify’s Event-Driven & Streaming Architecture Powers 66M Kafka Msg/sec"
-date: "2026-01-03"
-lastmod: "2026-01-03"
+title: 'How Shopify’s Event-Driven & Streaming Architecture Powers 66M Kafka Msg/sec'
+date: '2026-01-03'
+lastmod: '2026-01-03'
 draft: false
-summary: "Shopify processes some of the highest traffic loads anywhere. Behind the scenes, a streaming event core built on Apache Kafka enables this scale by decoupling services, enabling real-time analytics, and powering machine learning workflows."
-tags: ["System Design", "Kafka", "Architecture", "Shopify", "Event-Driven"]
-images: ["/static/images/shopify-event-driven-architecture.png"]
+summary: 'Shopify processes some of the highest traffic loads anywhere. Behind the scenes, a streaming event core built on Apache Kafka enables this scale by decoupling services, enabling real-time analytics, and powering machine learning workflows.'
+tags: ['System Design', 'Kafka', 'Architecture', 'Shopify', 'Event-Driven']
+images: ['/static/images/shopify-event-driven-architecture.png']
 ---
 
 Shopify processes some of the highest traffic loads anywhere — not just in e-commerce, but among global distributed systems. Behind the scenes, a streaming event core built on Apache Kafka enables this scale by decoupling services, enabling real-time analytics, and powering machine learning workflows.
@@ -23,6 +23,7 @@ When Shopify says 66 million messages per second at peak, this refers to how qui
 At these rates, millions of services and analytic jobs can consume real-time triggers without slowing down core transactions.
 
 In other words:
+
 - ✔ **Kafka is the nervous system** — carrying event “nerve impulses.”
 - ✔ **Producers don’t wait for consumers** — they drop events and move on.
 - ✔ **Consumers can read at their own pace** — enabling scalable asynchronous processing.
@@ -51,6 +52,7 @@ Here’s a simplified architecture diagram of how events flow at Shopify:
 ```
 
 **Notes:**
+
 - 📌 **Producers** generate events when something important happens (an order, inventory change, etc.).
 - 📌 **Kafka brokers** buffer and replicate these for high durability.
 - 📌 **Consumers** pull at their own speed — updating downstream systems like analytics clusters, search indices, ML jobs, dashboards, etc.
@@ -61,25 +63,25 @@ This decoupling is the heart of an event-driven architecture.
 
 At massive scale, typical queues (e.g., Redis pub/sub or basic message queues) hit service limits quickly. Kafka delivers:
 
-| Feature | Benefit |
-| :--- | :--- |
-| **High throughput** | Handles tens of millions of events/sec |
-| **Partitioning** | Scales horizontally by spreading load across brokers |
-| **Durability & Replication** | No single broker is a point of failure |
-| **Consumer groups** | Multiple consumers can independently read the stream |
-| **Schema versioning support** | Versions data formats safely |
+| Feature                       | Benefit                                              |
+| :---------------------------- | :--------------------------------------------------- |
+| **High throughput**           | Handles tens of millions of events/sec               |
+| **Partitioning**              | Scales horizontally by spreading load across brokers |
+| **Durability & Replication**  | No single broker is a point of failure               |
+| **Consumer groups**           | Multiple consumers can independently read the stream |
+| **Schema versioning support** | Versions data formats safely                         |
 
 Kafka excels where real-time and historical replay both matter, which is why Shopify uses it as the core.
 
 ## 🧱 Event-Driven vs Traditional
 
-| Aspect | Traditional | Event-Driven (Shopify) |
-| :--- | :--- | :--- |
-| **Coupling** | Tight | Loose/async |
-| **Latency** | Often synchronous API | Real-time batching |
-| **Scalability** | Limited by DB & sync calls | Horizontal via Kafka |
-| **Replay** | Hard | Built-in (Kafka retention) |
-| **Failure isolation** | Poor | Strong |
+| Aspect                | Traditional                | Event-Driven (Shopify)     |
+| :-------------------- | :------------------------- | :------------------------- |
+| **Coupling**          | Tight                      | Loose/async                |
+| **Latency**           | Often synchronous API      | Real-time batching         |
+| **Scalability**       | Limited by DB & sync calls | Horizontal via Kafka       |
+| **Replay**            | Hard                       | Built-in (Kafka retention) |
+| **Failure isolation** | Poor                       | Strong                     |
 
 This architecture frees teams to innovate independently — consumer teams can process slower analytics at their own pace while core business events stream at peak velocity.
 
@@ -88,12 +90,15 @@ This architecture frees teams to innovate independently — consumer teams can p
 Here are some core use cases powered by Kafka streams:
 
 ### 📦 Domain Events
+
 Events like order created, product updated, and cart modified are published as Kafka messages. Consumers subscribe and update search services, cache layers, and user interfaces.
 
 ### 🤖 Machine Learning Pipelines
+
 Real-time outputs — e.g., embeddings, predictions for recommendations — are produced from Kafka and used by downstream systems. Petrifying the event stream lets them apply business logic in near real time.
 
 ### 📊 Analytics and Metrics
+
 Data teams consume Kafka streams to feed dashboards, analytical models, and long-term storage. This avoids batching delays and lets Shopify perform interactive analytics on current traffic.
 
 ## 🧩 Real-World Pipeline Example
@@ -109,6 +114,7 @@ A real-time buyer signal pipeline at Shopify might look like:
 ```
 
 Here:
+
 - **CDC** stands for Change Data Capture (captures DB changes).
 - **Monorail** is an internal event structuring layer for consistency.
 - **Beam/Dataflow** handles transformation at scale.
@@ -116,6 +122,7 @@ Here:
 ## 🪶 A Note on Scale
 
 These numbers underscore the scale Shopify operates at:
+
 - ✨ 173 billion total requests in a 24-hr span
 - ✨ 284 million requests per minute during Black Friday
 - ✨ 66 million Kafka messages per second at peak
@@ -127,6 +134,7 @@ This isn’t theoretical — it’s real traffic under extreme conditions like B
 ## 🏁 Summary: Why This Matters
 
 Shopify’s streaming and event platform enables:
+
 - 🔥 **Real-time responsiveness** — analytics and ML process live events.
 - ⚡ **Extreme scalability** — millions of messages per second without service degradation.
 - 🔌 **Decoupled services** — each team or service can evolve independently.

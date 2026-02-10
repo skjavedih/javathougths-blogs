@@ -139,7 +139,7 @@ export default function ListLayout({
                           height={0}
                           sizes="100vw"
                           style={{ width: '100%', height: 'auto' }}
-                          className="object-center w-full rounded-lg"
+                          className="w-full rounded-lg object-center"
                         />
                       </div>
                     )}
@@ -150,7 +150,9 @@ export default function ListLayout({
                         </Link>
                       </h3>
                       <div className="flex flex-wrap">
-                        {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                        {tags?.map((tag) => (
+                          <Tag key={tag} text={tag} />
+                        ))}
                       </div>
                     </div>
                     <div className="prose max-w-none text-gray-500 dark:text-gray-400">
