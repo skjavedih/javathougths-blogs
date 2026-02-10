@@ -167,7 +167,6 @@ export default function RoadmapGraph({ data }: RoadmapGraphProps) {
       .attr('stroke-width', 2)
       .attr('class', 'transition-colors duration-300 dark:stroke-gray-800')
 
-
     // Text Label
     nodeEnter
       .append('text')
@@ -274,7 +273,7 @@ export default function RoadmapGraph({ data }: RoadmapGraphProps) {
           )}
           {activeNode.externalLinks && activeNode.externalLinks.length > 0 && (
             <div className="mt-2">
-              <h4 className="text-gray-500 uppercase mb-1 text-xs font-semibold">
+              <h4 className="mb-1 text-xs font-semibold text-gray-500 uppercase">
                 Resources
               </h4>
               <ul className="space-y-1">
