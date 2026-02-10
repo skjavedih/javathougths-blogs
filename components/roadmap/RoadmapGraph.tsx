@@ -263,7 +263,7 @@ export default function RoadmapGraph({ data }: RoadmapGraphProps) {
 
       {/* Tooltip Overlay */}
       {activeNode && (
-        <div className="absolute top-4 right-4 max-w-xs rounded-lg border border-gray-100 bg-white p-4 shadow-lg transition-opacity duration-300 dark:border-gray-700 dark:bg-gray-800 z-10">
+        <div className="z-10 max-w-xs rounded-lg border border-gray-100 bg-white p-4 shadow-lg transition-opacity duration-300 dark:border-gray-700 dark:bg-gray-800">
           <h3 className="mb-1 text-lg font-bold text-gray-900 dark:text-gray-100">
             {activeNode.label}
           </h3>
@@ -274,7 +274,7 @@ export default function RoadmapGraph({ data }: RoadmapGraphProps) {
           )}
           {activeNode.externalLinks && activeNode.externalLinks.length > 0 && (
             <div className="mt-2">
-              <h4 className="mb-1 text-xs font-semibold uppercase text-gray-500 dark:text-gray-400">
+              <h4 className="text-gray-500 uppercase mb-1 text-xs font-semibold">
                 Resources
               </h4>
               <ul className="space-y-1">

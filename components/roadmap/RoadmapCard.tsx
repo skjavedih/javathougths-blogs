@@ -20,7 +20,7 @@ export default function RoadmapCard({ title, slug, description, icon }: RoadmapC
             {title}
           </h2>
           <p className="mb-4 flex-grow text-gray-500 dark:text-gray-400">{description}</p>
-          <div className="mt-auto rounded-lg bg-primary-500 px-4 py-2 text-white hover:bg-primary-600 dark:hover:bg-primary-400">
+          <div className="bg-primary-500 hover:bg-primary-600 dark:hover:bg-primary-400 mt-auto rounded-lg px-4 py-2 text-white">
             Start Learning
           </div>
         </div>
