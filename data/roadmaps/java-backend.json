@@ -1,135 +1,135 @@
 {
-    "id": "root",
-    "label": "Java Backend Engineer",
-    "type": "root",
-    "children": [
+  "id": "root",
+  "label": "Java Backend Engineer",
+  "type": "root",
+  "children": [
+    {
+      "id": "java-basics",
+      "label": "Java Fundamentals",
+      "children": [
         {
-            "id": "java-basics",
-            "label": "Java Fundamentals",
-            "children": [
-                {
-                    "id": "syntax",
-                    "label": "Syntax & OOP",
-                    "description": "Variables, Loops, Classes, Inheritance, Polymorphism."
-                },
-                {
-                    "id": "collections",
-                    "label": "Collections Framework",
-                    "description": "List, Set, Map, Queue, HashMap, ArrayList."
-                },
-                {
-                    "id": "java8",
-                    "label": "Java 8+ Features",
-                    "description": "Lambdas, Streams, Optional, Functional Interfaces."
-                },
-                {
-                    "id": "concurrency",
-                    "label": "Concurrency",
-                    "description": "Threads, Runnable, ExecutorService, Synchronized."
-                }
-            ]
+          "id": "syntax",
+          "label": "Syntax & OOP",
+          "description": "Variables, Loops, Classes, Inheritance, Polymorphism."
         },
         {
-            "id": "build-tools",
-            "label": "Build Tools",
-            "children": [
-                {
-                    "id": "maven",
-                    "label": "Maven",
-                    "description": "Dependency management, build lifecycle, plugins.",
-                    "externalLinks": [
-                        {
-                            "label": "Maven Docs",
-                            "url": "https://maven.apache.org/guides/"
-                        }
-                    ]
-                },
-                {
-                    "id": "gradle",
-                    "label": "Gradle",
-                    "description": "Groovy/Kotlin DSL, tasks, dependency management."
-                }
-            ]
+          "id": "collections",
+          "label": "Collections Framework",
+          "description": "List, Set, Map, Queue, HashMap, ArrayList."
         },
         {
-            "id": "frameworks",
-            "label": "Web Frameworks",
-            "children": [
-                {
-                    "id": "spring-boot",
-                    "label": "Spring Boot",
-                    "description": "Auto-configuration, Starters, Actuator, Embedded Servers.",
-                    "externalLinks": [
-                        {
-                            "label": "Spring Initializr",
-                            "url": "https://start.spring.io/"
-                        }
-                    ]
-                },
-                {
-                    "id": "spring-mvc",
-                    "label": "Spring MVC",
-                    "description": "REST APIs, Controllers, Request Mapping."
-                },
-                {
-                    "id": "hibernate",
-                    "label": "Hibernate / JPA",
-                    "description": "ORM, Entity Mapping, Criteria API, Transactions."
-                }
-            ]
+          "id": "java8",
+          "label": "Java 8+ Features",
+          "description": "Lambdas, Streams, Optional, Functional Interfaces."
         },
         {
-            "id": "databases",
-            "label": "Databases",
-            "children": [
-                {
-                    "id": "sql",
-                    "label": "Relational (SQL)",
-                    "description": "PostgreSQL, MySQL, SQL Queries, Normalization."
-                },
-                {
-                    "id": "nosql",
-                    "label": "NoSQL",
-                    "description": "MongoDB, Redis (Caching), Cassandra."
-                }
-            ]
-        },
-        {
-            "id": "testing",
-            "label": "Testing",
-            "children": [
-                {
-                    "id": "junit",
-                    "label": "JUnit 5",
-                    "description": "Unit testing framework, Assertions, Lifecycle."
-                },
-                {
-                    "id": "mockito",
-                    "label": "Mockito",
-                    "description": "Mocking dependencies, Verify behavior."
-                }
-            ]
-        },
-        {
-            "id": "advanced",
-            "label": "Advanced Concepts",
-            "children": [
-                {
-                    "id": "microservices",
-                    "label": "Microservices",
-                    "description": "Service Discovery, Circuit Breakers, API Gateway."
-                },
-                {
-                    "id": "docker-k8s",
-                    "label": "Docker & K8s",
-                    "description": "Containerization, Orchestration, Deployment."
-                },
-                {
-                    "id": "kafka",
-                    "label": "Message Brokers",
-                    "description": "Kafka, RabbitMQ, Event-Driven Architecture."
-                }
-            ]
+          "id": "concurrency",
+          "label": "Concurrency",
+          "description": "Threads, Runnable, ExecutorService, Synchronized."
         }
-    ]
+      ]
+    },
+    {
+      "id": "build-tools",
+      "label": "Build Tools",
+      "children": [
+        {
+          "id": "maven",
+          "label": "Maven",
+          "description": "Dependency management, build lifecycle, plugins.",
+          "externalLinks": [
+            {
+              "label": "Maven Docs",
+              "url": "https://maven.apache.org/guides/"
+            }
+          ]
+        },
+        {
+          "id": "gradle",
+          "label": "Gradle",
+          "description": "Groovy/Kotlin DSL, tasks, dependency management."
+        }
+      ]
+    },
+    {
+      "id": "frameworks",
+      "label": "Web Frameworks",
+      "children": [
+        {
+          "id": "spring-boot",
+          "label": "Spring Boot",
+          "description": "Auto-configuration, Starters, Actuator, Embedded Servers.",
+          "externalLinks": [
+            {
+              "label": "Spring Initializr",
+              "url": "https://start.spring.io/"
+            }
+          ]
+        },
+        {
+          "id": "spring-mvc",
+          "label": "Spring MVC",
+          "description": "REST APIs, Controllers, Request Mapping."
+        },
+        {
+          "id": "hibernate",
+          "label": "Hibernate / JPA",
+          "description": "ORM, Entity Mapping, Criteria API, Transactions."
+        }
+      ]
+    },
+    {
+      "id": "databases",
+      "label": "Databases",
+      "children": [
+        {
+          "id": "sql",
+          "label": "Relational (SQL)",
+          "description": "PostgreSQL, MySQL, SQL Queries, Normalization."
+        },
+        {
+          "id": "nosql",
+          "label": "NoSQL",
+          "description": "MongoDB, Redis (Caching), Cassandra."
+        }
+      ]
+    },
+    {
+      "id": "testing",
+      "label": "Testing",
+      "children": [
+        {
+          "id": "junit",
+          "label": "JUnit 5",
+          "description": "Unit testing framework, Assertions, Lifecycle."
+        },
+        {
+          "id": "mockito",
+          "label": "Mockito",
+          "description": "Mocking dependencies, Verify behavior."
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "label": "Advanced Concepts",
+      "children": [
+        {
+          "id": "microservices",
+          "label": "Microservices",
+          "description": "Service Discovery, Circuit Breakers, API Gateway."
+        },
+        {
+          "id": "docker-k8s",
+          "label": "Docker & K8s",
+          "description": "Containerization, Orchestration, Deployment."
+        },
+        {
+          "id": "kafka",
+          "label": "Message Brokers",
+          "description": "Kafka, RabbitMQ, Event-Driven Architecture."
+        }
+      ]
+    }
+  ]
 }

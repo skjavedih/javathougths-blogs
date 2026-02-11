@@ -1,7 +1,7 @@
 {
-  "system-design": 6,
+  "system-design": 5,
   "architecture": 3,
-  "backend": 2,
+  "backend": 1,
   "java": 4,
   "microservices": 3,
   "java-lts": 1,
@@ -14,11 +14,6 @@
   "enterprise-ai": 1,
   "generative-ai": 1,
   "future-of-ai": 1,
-  "indian-railways": 2,
-  "travel": 1,
-  "technology-explained": 1,
-  "mobile-apps": 2,
-  "hello": 1,
   "virtual-threads": 1,
   "netflix": 1,
   "locks": 1,
@@ -33,14 +28,8 @@
   "event-driven": 1,
   "interview-preparation": 1,
   "career-growth": 1,
-  "writings": 1,
-  "book": 1,
-  "reflection": 1,
   "startup-story": 1,
   "indian-startups": 1,
   "google": 1,
-  "entrepreneurship": 1,
-  "multi-author": 1,
-  "next-js": 1,
-  "feature": 1
+  "entrepreneurship": 1
 }

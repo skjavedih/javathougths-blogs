@@ -1,108 +1,108 @@
 {
-    "id": "root",
-    "label": "Full Stack Engineer",
-    "type": "root",
-    "children": [
+  "id": "root",
+  "label": "Full Stack Engineer",
+  "type": "root",
+  "children": [
+    {
+      "id": "frontend",
+      "label": "Frontend Development",
+      "children": [
         {
-            "id": "frontend",
-            "label": "Frontend Development",
-            "children": [
-                {
-                    "id": "html-css",
-                    "label": "HTML & CSS",
-                    "description": "Semantic HTML, Flexbox, Grid, Responsive Design."
-                },
-                {
-                    "id": "javascript",
-                    "label": "JavaScript / TypeScript",
-                    "description": "ES6+, Async/Await, DOM Manipulation, Types, Interfaces."
-                },
-                {
-                    "id": "frameworks",
-                    "label": "Frameworks",
-                    "children": [
-                        {
-                            "id": "react",
-                            "label": "React.js",
-                            "description": "Components, Hooks, State Management, APIs.",
-                            "externalLinks": [
-                                {
-                                    "label": "React Docs",
-                                    "url": "https://react.dev/"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "nextjs",
-                            "label": "Next.js",
-                            "description": "SSR, SCR, Routing, Image Optimization."
-                        },
-                        {
-                            "id": "tailwind",
-                            "label": "Tailwind CSS",
-                            "description": "Utility-first CSS framework."
-                        }
-                    ]
-                }
-            ]
+          "id": "html-css",
+          "label": "HTML & CSS",
+          "description": "Semantic HTML, Flexbox, Grid, Responsive Design."
         },
         {
-            "id": "backend",
-            "label": "Backend Development",
-            "children": [
-                {
-                    "id": "nodejs",
-                    "label": "Node.js (Choice 1)",
-                    "description": "Event Loop, Express.js, Nest.js, REST APIs."
-                },
-                {
-                    "id": "java",
-                    "label": "Java (Choice 2)",
-                    "description": "Spring Boot, Maven, Hibernate."
-                },
-                {
-                    "id": "python",
-                    "label": "Python (Choice 3)",
-                    "description": "Django, FastAPI, Flask."
-                }
-            ]
+          "id": "javascript",
+          "label": "JavaScript / TypeScript",
+          "description": "ES6+, Async/Await, DOM Manipulation, Types, Interfaces."
         },
         {
-            "id": "database",
-            "label": "Databases",
-            "children": [
+          "id": "frameworks",
+          "label": "Frameworks",
+          "children": [
+            {
+              "id": "react",
+              "label": "React.js",
+              "description": "Components, Hooks, State Management, APIs.",
+              "externalLinks": [
                 {
-                    "id": "relational",
-                    "label": "Relational DB",
-                    "description": "PostgreSQL, MySQL, Prisma ORM."
-                },
-                {
-                    "id": "nosql",
-                    "label": "NoSQL",
-                    "description": "MongoDB, Firebase, Supabase."
+                  "label": "React Docs",
+                  "url": "https://react.dev/"
                 }
-            ]
-        },
-        {
-            "id": "devops",
-            "label": "DevOps & Deployment",
-            "children": [
-                {
-                    "id": "git",
-                    "label": "Git & GitHub",
-                    "description": "Version control, Pull Requests, Actions."
-                },
-                {
-                    "id": "cloud",
-                    "label": "Cloud Providers",
-                    "description": "AWS (EC2, S3, Lambda), Vercel, Netlify."
-                },
-                {
-                    "id": "docker",
-                    "label": "Docker",
-                    "description": "Containerization basics."
-                }
-            ]
+              ]
+            },
+            {
+              "id": "nextjs",
+              "label": "Next.js",
+              "description": "SSR, SCR, Routing, Image Optimization."
+            },
+            {
+              "id": "tailwind",
+              "label": "Tailwind CSS",
+              "description": "Utility-first CSS framework."
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "id": "backend",
+      "label": "Backend Development",
+      "children": [
+        {
+          "id": "nodejs",
+          "label": "Node.js (Choice 1)",
+          "description": "Event Loop, Express.js, Nest.js, REST APIs."
+        },
+        {
+          "id": "java",
+          "label": "Java (Choice 2)",
+          "description": "Spring Boot, Maven, Hibernate."
+        },
+        {
+          "id": "python",
+          "label": "Python (Choice 3)",
+          "description": "Django, FastAPI, Flask."
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "label": "Databases",
+      "children": [
+        {
+          "id": "relational",
+          "label": "Relational DB",
+          "description": "PostgreSQL, MySQL, Prisma ORM."
+        },
+        {
+          "id": "nosql",
+          "label": "NoSQL",
+          "description": "MongoDB, Firebase, Supabase."
+        }
+      ]
+    },
+    {
+      "id": "devops",
+      "label": "DevOps & Deployment",
+      "children": [
+        {
+          "id": "git",
+          "label": "Git & GitHub",
+          "description": "Version control, Pull Requests, Actions."
+        },
+        {
+          "id": "cloud",
+          "label": "Cloud Providers",
+          "description": "AWS (EC2, S3, Lambda), Vercel, Netlify."
+        },
+        {
+          "id": "docker",
+          "label": "Docker",
+          "description": "Containerization basics."
+        }
+      ]
+    }
+  ]
 }
