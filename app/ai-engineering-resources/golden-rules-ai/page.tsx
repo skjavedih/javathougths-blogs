@@ -25,12 +25,12 @@ export default function GoldenRulesAIPage() {
         <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14 dark:text-gray-100">
           🚀 Golden Rule Before Building Any AI Application
         </h1>
-        <p className="text-lg leading-7 text-gray-500 dark:text-gray-400 italic">
+        <p className="text-lg leading-7 text-gray-500 italic dark:text-gray-400">
           &quot;Before building an application, define the rules of intelligence.&quot;
         </p>
         <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-          AI agents are powerful — but without structure, they become chaotic. So before writing even
-          1 line of code, we define <strong>5 foundational documents</strong>.
+          AI agents are powerful — but without structure, they become chaotic. So before writing
+          even 1 line of code, we define <strong>5 foundational documents</strong>.
         </p>
       </div>
 
@@ -49,7 +49,7 @@ export default function GoldenRulesAIPage() {
           </ul>
 
           <div className="not-prose my-6 rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800/50">
-            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <h4 className="mb-3 text-sm font-bold tracking-wider text-gray-500 uppercase dark:text-gray-400">
               Example Structure
             </h4>
             <pre className="overflow-x-auto text-sm text-gray-800 dark:text-gray-200">
@@ -70,15 +70,9 @@ You are a senior full-stack engineer.
           </div>
 
           <div className="not-prose my-6 space-y-2">
-            <p className="text-gray-700 dark:text-gray-300">
-              👉 This prevents hallucination
-            </p>
-            <p className="text-gray-700 dark:text-gray-300">
-              👉 Makes AI predictable
-            </p>
-            <p className="text-gray-700 dark:text-gray-300">
-              👉 Makes output production-grade
-            </p>
+            <p className="text-gray-700 dark:text-gray-300">👉 This prevents hallucination</p>
+            <p className="text-gray-700 dark:text-gray-300">👉 Makes AI predictable</p>
+            <p className="text-gray-700 dark:text-gray-300">👉 Makes output production-grade</p>
           </div>
 
           {/* 2️⃣ README.md */}
@@ -98,9 +92,7 @@ You are a senior full-stack engineer.
 
           {/* 3️⃣ SKILLS.md */}
           <h2>3️⃣ SKILLS.md – Agent Capability Memory 🧠</h2>
-          <p>
-            This is your powerful idea 👏 Whenever the agent uses a skill while building:
-          </p>
+          <p>This is your powerful idea 👏 Whenever the agent uses a skill while building:</p>
           <ul>
             <li>JWT Authentication</li>
             <li>Stripe Payment Integration</li>
@@ -122,7 +114,7 @@ You are a senior full-stack engineer.
           </ul>
 
           <div className="not-prose my-6 rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800/50">
-            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <h4 className="mb-3 text-sm font-bold tracking-wider text-gray-500 uppercase dark:text-gray-400">
               Example
             </h4>
             <pre className="overflow-x-auto text-sm text-gray-800 dark:text-gray-200">
@@ -148,7 +140,7 @@ You are a senior full-stack engineer.
           </ul>
 
           <div className="not-prose my-6 rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800/50">
-            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <h4 className="mb-3 text-sm font-bold tracking-wider text-gray-500 uppercase dark:text-gray-400">
               Example
             </h4>
             <pre className="overflow-x-auto text-sm text-gray-800 dark:text-gray-200">
@@ -194,7 +186,7 @@ You are a senior full-stack engineer.
 
           <h3>Step 4: Execution Flow Plan</h3>
           <div className="not-prose my-6 rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800/50">
-            <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <h4 className="mb-3 text-sm font-bold tracking-wider text-gray-500 uppercase dark:text-gray-400">
               Example
             </h4>
             <ol className="list-decimal space-y-1 pl-6 text-sm text-gray-800 dark:text-gray-200">
@@ -219,13 +211,11 @@ You are a senior full-stack engineer.
             <p className="mb-4 text-gray-700 dark:text-gray-300">
               Before writing code, agent should say:
             </p>
-            <blockquote className="mb-4 border-l-4 border-red-400 pl-4 italic text-gray-700 dark:text-gray-300">
+            <blockquote className="mb-4 border-l-4 border-red-400 pl-4 text-gray-700 italic dark:text-gray-300">
               &quot;Here is the architecture plan and execution flow. Do you approve this plan?
               Should I proceed?&quot;
             </blockquote>
-            <p className="mb-2 font-semibold text-gray-800 dark:text-gray-200">
-              This prevents:
-            </p>
+            <p className="mb-2 font-semibold text-gray-800 dark:text-gray-200">This prevents:</p>
             <ul className="list-disc space-y-1 pl-6 text-gray-700 dark:text-gray-300">
               <li>Wrong implementation</li>
               <li>Wasted effort</li>

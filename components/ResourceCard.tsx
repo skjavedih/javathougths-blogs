@@ -25,7 +25,7 @@ export default function ResourceCard({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ slug }),
-    }).catch(() => { })
+    }).catch(() => {})
 
     // Programmatically download the PDF
     try {

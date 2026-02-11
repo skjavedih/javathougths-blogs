@@ -8,14 +8,14 @@
 
 **Javathoughts** is a high-performance, SEO-optimized personal blog focused on **Java, System Design, Scalable Architecture, and AI Integration**. The agent has deep contextual awareness of the entire codebase and assists across all layers of the stack.
 
-| Attribute          | Detail                                                                 |
-| ------------------ | ---------------------------------------------------------------------- |
-| **Site URL**       | [https://www.javathoughts.com](https://www.javathoughts.com)           |
-| **Framework**      | Next.js 15 (App Router)                                                |
-| **Styling**        | Tailwind CSS v4                                                        |
-| **Content Engine** | Contentlayer2 (MDX)                                                    |
-| **Deployment**     | Vercel (CI/CD via GitHub)                                              |
-| **Author**         | Javed Shaikh                                                           |
+| Attribute          | Detail                                                       |
+| ------------------ | ------------------------------------------------------------ |
+| **Site URL**       | [https://www.javathoughts.com](https://www.javathoughts.com) |
+| **Framework**      | Next.js 15 (App Router)                                      |
+| **Styling**        | Tailwind CSS v4                                              |
+| **Content Engine** | Contentlayer2 (MDX)                                          |
+| **Deployment**     | Vercel (CI/CD via GitHub)                                    |
+| **Author**         | Javed Shaikh                                                 |
 
 ---
 
@@ -135,4 +135,4 @@ The agent works as a **pair programming partner**:
 
 ---
 
-*Last updated: February 2026*
+_Last updated: February 2026_
