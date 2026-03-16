@@ -1,0 +1,306 @@
+---
+title: 'The Netflix Tech Stack: A Love Story Between Microservices, Chaos Monkeys, and 238 Million Couch Potatoes'
+summary: 'A hilarious deep-dive into the tech stack that powers Netflix — from React on the frontend to Chaos Monkey terrorizing production. Buckle up, it is going to be a binge-worthy read.'
+date: '2026-03-16'
+lastmod: '2026-03-16'
+draft: false
+tags: ['Netflix', 'System Design', 'Tech Stack', 'Microservices', 'Backend Architecture']
+images: ['/static/images/netflix-tech-stack.jpg']
+---
+
+![Netflix Tech Stack](/static/images/netflix-tech-stack.jpg)
+
+## Once Upon a Time, in a Land Called "Buffering"…
+
+Picture this: It's Friday night. You've spent 45 minutes arguing with your partner about what to watch. You've scrolled past 3,000 titles. You've read 17 synopses. You've watched 4 trailers. And finally — **finally** — you press play on the same show you've already watched three times.
+
+But here's the thing most people don't think about:
+
+**How does Netflix actually deliver that show to your screen without a single hiccup?**
+
+Behind every "Are you still watching?" prompt is a tech stack so massive, so beautifully chaotic, and so hilariously over-engineered that it could make a senior backend engineer weep tears of joy.
+
+Let's pull back the curtain on the engineering marvel that streams to **238 million subscribers** across **190 countries** — and let's make it fun while we're at it.
+
+---
+
+## 🎬 Act 1: The Frontend — Where It All Begins (and Where You Waste 45 Minutes Scrolling)
+
+### Mobile Apps: Swift & Kotlin — The Power Couple
+
+Netflix's mobile apps are built using **Swift** (for iOS) and **Kotlin** (for Android). These two are like the popular kids in school — modern, fast, and everyone wants to hang out with them.
+
+Why not Flutter or React Native?
+
+Because when you're Netflix, you don't compromise. You build **native** apps. You want buttery smooth animations when users endlessly scroll through thumbnails they'll never click. You want the "Skip Intro" button to respond in nanoseconds because apparently, nobody has 30 seconds to spare for a TV show intro anymore.
+
+> _"We could've gone cross-platform, but we chose suffering — I mean, native development."_
+> — Probably a Netflix mobile engineer.
+
+### Web App: React — The JavaScript Overlord
+
+For the web, Netflix uses **React**. And honestly, if React were a person, it would be that overachiever in your office who works on 47 projects simultaneously and somehow delivers every single one.
+
+Netflix was actually one of the **earliest adopters of React** back in 2015. While the rest of us were still debating Angular vs jQuery (yes, that was a thing), Netflix was already building blazing-fast, component-based UIs.
+
+Their React setup is server-side rendered for **performance** — because if the Netflix homepage takes more than 2 seconds to load, statistically, 30% of people will close the tab and go stare at their fridge instead.
+
+### Frontend-Server Communication: GraphQL — The Translator
+
+How does the React frontend talk to the backend? Through **GraphQL** — the API layer that says, _"Tell me exactly what you want, and I'll give you exactly that. Nothing more, nothing less."_
+
+Think of GraphQL as a restaurant where the waiter actually listens. No more REST endpoints that return 47 fields when you only needed 3. No more over-fetching. No more under-fetching. Just precision.
+
+Netflix built their own GraphQL federation layer called **Netflix Federated GraphQL**, where multiple backend teams own their part of the schema. It's like a potluck dinner, but instead of random casseroles, everyone brings exactly the dish you asked for.
+
+---
+
+## 🏗️ Act 2: The Backend — Where Microservices Party Like It's 1999
+
+![Netflix Backend — The Medieval Kitchen of Microservices](/static/images/netflix-backend-kitchen.png)
+
+If Netflix's backend were a city, it would look like Tokyo — dense, efficient, impossibly complex, and somehow everything just works.
+
+Netflix runs **over 1,000 microservices**. Yes, you read that right. A thousand tiny services, each doing one thing and doing it well. It's like an ant colony, except the ants are Java services and the queen is the deployment pipeline.
+
+### ZUUL — The Gatekeeper
+
+Every request that hits Netflix first passes through **ZUUL** — their API gateway. ZUUL decides where your request goes, applies rate limiting, handles authentication, and basically acts as the bouncer at the world's biggest nightclub.
+
+> _ZUUL, standing at the door: "Are you on the list?"_
+> _Your request: "I literally just want to resume episode 4 of Stranger Things."_
+> _ZUUL: "ID, please."_
+
+ZUUL handles **dynamic routing**, request filtering, and load balancing. It's the first line of defense against bad traffic and misbehaving clients.
+
+### Eureka — The Service Finder (Not the Bathtub Moment)
+
+In a world of 1,000+ microservices, how does one service find another?
+
+Enter **Eureka** — Netflix's service discovery tool. It's like a phone book for microservices. Every service registers itself with Eureka, and when Service A needs to talk to Service B, it asks Eureka: _"Hey, where's Service B living these days?"_
+
+Without Eureka, microservices would be wandering around the data center like lost tourists asking for directions in a foreign language.
+
+### Spring Boot — The Head Chef
+
+**Spring Boot** is the framework that powers most of Netflix's backend microservices. It's the reliable, dependable workhorse that never complains — like that one friend who always drives everyone to the airport at 4 AM.
+
+Netflix actually built their own Spring Boot ecosystem called **Netflix OSS** (Open Source Software), which includes tools like Hystrix (circuit breaker), Ribbon (client-side load balancer), and Archaius (configuration management).
+
+Spring Boot does the heavy lifting: dependency injection, REST APIs, service configuration, health checks — you name it. It's the backbone that holds the chaos together.
+
+---
+
+## 🗄️ Act 3: The Databases — Where Data Goes to Party (and Sometimes Get Lost)
+
+Netflix's database strategy is like a buffet — multiple options for different appetites. And just like a buffet, choosing the right one can be overwhelming.
+
+### EVCache — The Speed Demon
+
+**EVCache** is Netflix's distributed caching solution built on top of Memcached. Think of it as the **short-term memory** of Netflix. It stores frequently accessed data — like your profile, recommendations, and viewing history — so the system doesn't have to hit the database for every single request.
+
+EVCache operates at **30 million requests per second** at peak. That's not a typo. Thirty. Million. Every. Second.
+
+> If EVCache were a barista, it would serve 30 million lattes per second — and somehow remember everyone's name.
+
+### Cassandra — The Immortal Database
+
+**Apache Cassandra** is Netflix's go-to for distributed, high-availability storage. It's the database equivalent of a **cockroach** — unkillable, decentralized, and it thrives in chaos.
+
+Netflix stores viewing history, bookmarks, and user activity data in Cassandra because it offers:
+- **No single point of failure** (unlike your Wi-Fi router)
+- **Linear scalability** (add more nodes, get more performance)
+- **Multi-region replication** (your data exists in 3 continents simultaneously)
+
+Fun fact: Netflix runs one of the **largest Cassandra deployments in the world** — thousands of nodes across multiple AWS regions.
+
+### CockroachDB — The New Kid on the Block
+
+**CockroachDB** has been making its way into Netflix's stack for use cases that require **strong consistency** and **global transactions**. Where Cassandra says, "eventual consistency is good enough," CockroachDB says, "Actually, I'd like ACID guarantees, thank you."
+
+It's like Cassandra's uptight cousin who insists on following every rule at the family dinner.
+
+---
+
+## 📬 Act 4: Messaging & Streaming — The Postal Service on Steroids
+
+### Apache Kafka — The Backbone of Everything
+
+If Netflix's tech stack were the human body, **Apache Kafka** would be the nervous system.
+
+Kafka handles **event streaming** at Netflix — and by "handles," I mean it carries **over 1 trillion messages per day**. Let that number sink in. One. Trillion. Messages.
+
+Every time you press play, pause, rewind, skip, or — God forbid — **cancel your subscription**, that event flows through Kafka. It's the universal message bus that connects microservices, powers analytics, feeds ML models, and keeps the entire distributed system in sync.
+
+Netflix's Kafka setup processes **over 6 petabytes of data daily**. For context, that's roughly 6 million gigabytes. Every day. If you tried downloading that on your home Wi-Fi, you'd finish sometime around the next ice age.
+
+### Apache Flink — The Real-Time Brain
+
+While Kafka moves the data, **Apache Flink** processes it **in real time**. Flink is the stream processing engine that runs computations on data *as it flows* — no waiting, no batching, no "let me get back to you on that."
+
+Netflix uses Flink for:
+- **Real-time recommendations** (updating what you see based on what everyone else just watched)
+- **Anomaly detection** (is there a sudden drop in streaming quality in Brazil?)
+- **A/B test evaluation** (did changing the thumbnail of a movie increase clicks?)
+
+Flink is like having a mathematician who can solve equations written on moving trains. While the trains are on fire. And the mathematician is also on fire. But somehow, the math checks out.
+
+---
+
+## 📹 Act 5: Video Storage — How to Store 17,000+ Titles Without Crying
+
+### Amazon S3 — The Infinite Closet
+
+All of Netflix's original video content is stored in **Amazon S3** (Simple Storage Service). S3 is basically a giant cloud closet with infinite shelf space. You throw stuff in, and it stays there. Forever. No questions asked.
+
+Netflix encodes every single title into **multiple formats and resolutions** — 4K, 1080p, 720p, mobile, tablet, your grandma's ancient iPad — which means a single movie might exist as **hundreds of encoded files** in S3.
+
+The total storage? **Hundreds of petabytes.** That's more data than the entire Library of Congress... multiplied by a ridiculous number.
+
+### Open Connect — Netflix's Own CDN (Because AWS Wasn't Enough)
+
+Here's where it gets wild. Netflix didn't just *use* a CDN — they **built their own** called **Open Connect**.
+
+Open Connect is a network of custom-built servers deployed **inside ISP networks** around the world. There are **thousands of Open Connect Appliances (OCAs)** sitting in telecom facilities from Mumbai to Munich, each stuffed with the most popular Netflix content for that region.
+
+So when you press play on *Wednesday*:
+- The video doesn't stream from some server in Oregon
+- It streams from a Netflix server **literally inside your ISP's building**
+- Possibly in the same city as you
+- Maybe even in the same block
+
+This is how Netflix delivers 15% of all global internet traffic without melting the internet. They brought the content **to you** instead of making you go to it. It's like Amazon building a warehouse in your living room.
+
+> _"Why go to the mountain when you can put the mountain inside the ISP?"_
+> — Netflix Engineering, probably.
+
+---
+
+## 📊 Act 6: Data Processing — Turning Popcorn Clicks Into Intelligence
+
+Netflix doesn't just stream — it **learns**. Every single interaction is captured, analyzed, and used to make the platform smarter. It's like having a friend who remembers every movie you've ever mentioned and surprises you with perfect recommendations.
+
+### Apache Spark — The Batch Processing Beast
+
+**Apache Spark** handles Netflix's massive batch processing jobs. Think: overnight computations that crunch billions of viewing events to update recommendation models, calculate content popularity rankings, and generate business intelligence reports.
+
+Spark processes **petabytes of data daily** and powers Netflix's legendary recommendation engine — the algorithm that somehow knows you'll love a Korean thriller about a vegetarian even though you've only been watching cooking shows.
+
+### Apache Flink (Again) — The Real-Time Counterpart
+
+While Spark crunches in batches, Flink does it in real-time. Together, they form the **Lambda Architecture** at Netflix — batch for accuracy, stream for speed.
+
+### Tableau — Making Data Pretty
+
+Once the data is processed, **Tableau** turns it into dashboards that Netflix executives can actually understand. Because let's be honest — nobody's reading raw Spark output at a board meeting.
+
+### Amazon Redshift — The Data Warehouse
+
+**Redshift** stores Netflix's structured analytical data. Think subscriber counts by region, content performance metrics, revenue projections — all the serious business data that keeps the CFO happy.
+
+Redshift is the place where questions like *"How many people in Germany watched Season 3 of Squid Game in the first 48 hours?"* get answered.
+
+---
+
+## 🔧 Act 7: CI/CD — The Deployment Factory (Featuring a Literal Monkey)
+
+![Netflix CI/CD Pipeline — The Beautiful Chaos Machine](/static/images/netflix-cicd-chaos.png)
+
+Netflix deploys code **thousands of times per day**. Let that sink in. While most companies have a "deploy once on Friday and pray" strategy, Netflix is out here shipping code like Amazon ships packages — constantly, relentlessly, and with questionable levels of confidence.
+
+Here's the cast of characters:
+
+### JIRA & Confluence — The Paperwork Twins
+Every feature, bug fix, and "who broke production?" investigation starts in **JIRA**. Documentation lives in **Confluence**. Together, they form the bureaucratic backbone that keeps 10,000 engineers from stepping on each other's toes.
+
+### Jenkins & Gradle — The Build Bros
+**Jenkins** handles CI automation — running tests, building artifacts, making sure your code doesn't set the data center on fire. **Gradle** is the build tool that compiles, tests, and packages everything into deployable artifacts.
+
+### Spinnaker — The Deployment Maestro
+Netflix built **Spinnaker** — an open-source, multi-cloud continuous delivery platform. Spinnaker manages the entire deployment lifecycle: canary deployments, blue/green deployments, rollbacks, and everything in between. It's how Netflix deploys to production without breaking a sweat.
+
+### PagerDuty — The 3 AM Wake-Up Call
+When things go wrong (and they will), **PagerDuty** wakes up the on-call engineer with the subtlety of a fire alarm in a library. It's the tool that everyone hates but secretly respects.
+
+### Atlas — The All-Seeing Eye
+**Atlas** is Netflix's in-house monitoring platform. It tracks millions of metrics in real time — latency, error rates, throughput — and feeds into alerts, dashboards, and the existential dread of on-call engineers everywhere.
+
+### And Then… There's Chaos Monkey 🐒
+
+Ah yes. **Chaos Monkey.** The legendary tool that **randomly kills production servers** to test if the system survives.
+
+Let me repeat that: Netflix has a tool that **deliberately breaks production.** On purpose. During business hours. While 238 million people are watching.
+
+It's like hiring someone whose entire job is to pull random plugs from the server rack and ask, "Does it still work?"
+
+And the answer, thanks to Netflix's resilient architecture, is almost always: **"Yes."**
+
+Chaos Monkey is part of the larger **Simian Army** — a collection of chaos tools including:
+- **Latency Monkey** (adds fake delays)
+- **Conformity Monkey** (checks for best practices)
+- **Chaos Gorilla** (simulates an entire AWS availability zone going down)
+
+> _Normal companies: "Let's hope nothing breaks."_
+> _Netflix: "Let's break everything on purpose and see what happens."_
+
+This is the Netflix philosophy: **If you can't survive chaos in testing, you'll crumble under real chaos.**
+
+---
+
+## 🧩 The Big Picture: How It All Fits Together
+
+Let's zoom out and see the full stack working in harmony:
+
+| Layer | Technology | Role |
+|---|---|---|
+| **Mobile Apps** | Swift, Kotlin | Native user experience |
+| **Web App** | React | Blazing-fast UI rendering |
+| **API Communication** | GraphQL | Precise frontend-backend data exchange |
+| **API Gateway** | ZUUL | Traffic routing, auth, rate limiting |
+| **Service Discovery** | Eureka | Finding microservices in the wild |
+| **Backend Framework** | Spring Boot | Microservice backbone |
+| **Caching** | EVCache | 30M req/sec in-memory speed |
+| **Database (AP)** | Cassandra | Distributed, high-availability storage |
+| **Database (CP)** | CockroachDB | Strong consistency, global transactions |
+| **Messaging** | Apache Kafka | 1 trillion+ messages/day event bus |
+| **Stream Processing** | Apache Flink | Real-time analytics & processing |
+| **Batch Processing** | Apache Spark | Overnight crunching of petabytes |
+| **Visualization** | Tableau | Executive-friendly dashboards |
+| **Data Warehouse** | Amazon Redshift | Structured analytical queries |
+| **Video Storage** | Amazon S3 | Hundreds of petabytes of encoded video |
+| **CDN** | Open Connect | Content delivery from inside your ISP |
+| **CI/CD** | Jenkins, Gradle, Spinnaker | Thousands of daily deployments |
+| **Chaos Testing** | Chaos Monkey | Breaking prod to build resilience |
+| **Monitoring** | Atlas | Real-time metrics and alerting |
+| **Incident Management** | PagerDuty | The 3 AM alarm clock |
+| **Project Management** | JIRA, Confluence | Keeping humans organized |
+
+---
+
+## 🎤 The Grand Finale: What Makes Netflix's Stack Special
+
+Netflix's tech stack isn't special because of any one tool. GraphQL, Kafka, Cassandra — you can use all of these too. The magic is in **how they're composed together** and the **engineering culture** that glues it all.
+
+Here's what actually sets Netflix apart:
+
+1. **They build what they need.** Open Connect, EVCache, Spinnaker, ZUUL — Netflix builds custom tools when existing ones don't meet their scale. And then they **open-source them** for the rest of us. Legends.
+
+2. **They embrace failure literally.** Chaos Monkey isn't a joke — it's a philosophy. Design for failure, test for failure, and when real failure comes, yawn and move on.
+
+3. **They optimize for speed obsessively.** From encoding videos into 2,000+ streams to placing servers inside your ISP's building — every millisecond matters.
+
+4. **They trust their engineers.** Netflix's famous "Freedom and Responsibility" culture means engineers can deploy to production without 17 approval chains. This is why they ship thousands of times a day.
+
+---
+
+## 🍿 Closing Credits
+
+The next time you're lying on the couch, mindlessly watching your fifth episode of the night, and a little popup asks **"Are you still watching?"** — remember:
+
+Behind that question is a tech stack of **1,000+ microservices**, **trillions of Kafka messages**, **petabytes of video**, a literal **monkey that breaks servers**, and an army of engineers who've built one of the most sophisticated distributed systems on the planet.
+
+All so you can say: _"Yes, I'm still watching. Don't judge me."_
+
+---
+
+**Thanks for reading! If you enjoyed this deep-dive into Netflix's engineering, share it with a fellow developer who needs to appreciate the tech behind their binge sessions. 🍿**
