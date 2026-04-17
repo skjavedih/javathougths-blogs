@@ -1,7 +1,11 @@
 {
-  "system-design": 10,
+  "system-design": 11,
+  "e-commerce": 1,
+  "microservices": 7,
+  "event-driven-architecture": 1,
+  "hld": 1,
+  "lld": 1,
   "modular-monolith": 1,
-  "microservices": 6,
   "shopify": 2,
   "spring-boot": 2,
   "architecture": 4,

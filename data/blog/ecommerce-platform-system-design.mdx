@@ -1,0 +1,413 @@
+---
+title: 'E-Commerce Platform System Design (Amazon, eBay)'
+summary: 'A comprehensive system design breakdown of an E-Commerce Platform like Amazon or eBay — covering event-driven architecture, microservices, data modeling, API design, and complete flow diagrams for product browsing, cart management, and checkout.'
+date: '2026-04-17'
+lastmod: '2026-04-17'
+draft: false
+tags: ['System Design', 'E-Commerce', 'Microservices', 'Event Driven Architecture', 'HLD', 'LLD']
+images: ['/static/images/ecommerce-system-design/ecommerce-hero.png']
+---
+
+![E-Commerce Platform System Design](/static/images/ecommerce-system-design/ecommerce-hero.png)
+
+## Overview
+
+Designing a large-scale e-commerce platform like **Amazon** or **eBay** is one of the most classic and comprehensive system design problems. It touches upon nearly every pillar of distributed systems — from real-time inventory management to event-driven order processing, from search optimization to payment security.
+
+In this deep-dive, we'll walk through the **High-Level Design (HLD)** and **Low-Level Design (LLD)** of such a platform, covering every critical flow a user interacts with.
+
+### What We'll Cover
+
+- **Requirements** — Functional & Non-Functional
+- **Estimates** — QPS & Storage
+- **Data Model** — Core Entities & Relationships
+- **API Design** — RESTful Endpoints
+- **Product Browsing Flow** — Search, Cache, Inventory
+- **Cart Management Flow** — Add, Update, Remove Items
+- **Checkout and Order Placement Flow** — Payment, Kafka, Workers
+- **Complete Architecture** — End-to-End System
+- **Additional Discussion Points** — Security, Scaling, Monitoring
+
+---
+
+## Requirements
+
+### Functional Requirements
+
+| Requirement | Description |
+|---|---|
+| **User Authentication** | Enables login for cart persistence and order history. |
+| **Product Catalog** | Allows browsing by category and searching by keyword with key details (e.g., price, availability). |
+| **Shopping Cart** | Supports adding, updating, or removing items, persisted for logged-in users. |
+| **Order Management** | Facilitates order placement, history, and status tracking. |
+| **Payment Processing** | Supports multiple methods (e.g., credit card) and refunds securely. |
+| **Inventory Management** | Ensures real-time stock updates (reduce on order, increase on return). |
+
+### Non-Functional Requirements
+
+| Requirement | Description |
+|---|---|
+| **Scalability** | Handle millions of users and transactions (e.g., horizontal scaling with load balancers, sharded databases), and support traffic spikes (e.g., Black Friday sales) using auto-scaling and caching. |
+| **Performance** | Low latency for search and page loads (e.g., &lt; 200ms for product searches), and fast checkout process to minimize cart abandonment. |
+| **Availability** | The system should be reliably accessible at all times, with minimal downtime (e.g., using redundancy, multi-region deployment). |
+| **Security** | Enforces encryption (TLS, HTTPS) and PCI DSS compliance. |
+
+### Not Covered
+
+> The following features are typical in a production e-commerce system but are excluded here due to interview time constraints.
+
+- **Notifications**: Email or SMS updates for orders and promotions (full notification system design is a separate topic).
+- **Reviews and Ratings**: User-generated product feedback.
+- **Seller Portal**: Tools for third-party sellers to manage listings.
+
+---
+
+## Estimates
+
+In this section, we estimate **Query Per Second (QPS)** and **storage needs** for the e-commerce system with simplified back-of-the-envelope calculations, suitable for an interview's time constraints.
+
+### Query Per Second (QPS) Estimates
+
+**Assumptions:**
+- 10M daily active users (DAU)
+- Peak traffic is 2x average
+- Traffic breakdown: ~80% browsing/search, ~20% checkout
+
+**Calculation:**
+
+```
+10M users/day × 10 page views/user = 100M views/day
+
+100M / (24 × 3600 seconds) ≈ 1,150 QPS (average)
+
+Peak QPS = 1,150 × 2 = 2,300 QPS
+```
+
+### Storage Requirements
+
+**Assumptions:**
+- 10M users, 100M products, 1M orders/day, 1-year retention
+
+**Calculation:**
+
+```
+Users:    10M × 1KB/user        = 10 GB
+Products: 100M × 10KB/product   = 1 TB
+Orders:   1M/day × 5KB × 365    = 1.825 TB
+
+Total = 10GB + 1TB + 1.825TB   ≈ 2.84 TB
+```
+
+> **Note:** These are simplified estimates for interview brevity. A more comprehensive analysis (e.g., splitting QPS by operation or factoring in replication) is more accurate but omitted here due to time constraints of an interview.
+
+---
+
+## Data Model
+
+The data model encapsulates the core entities required to support the e-commerce system's functionality. It's designed to be simple yet extensible for an interview setting.
+
+### Core Entities
+
+| Entity | Purpose |
+|---|---|
+| **User** | Authentication, personalization |
+| **Product** | Catalog data |
+| **Inventory** | Stock management (separate from products) |
+| **Cart, CartItem** | User shopping cart tracking |
+| **Order, OrderItem** | Order details and inventory linking |
+| **Payment** | Transaction details and tracking |
+
+### Relationships
+
+```
+User → Cart           (One-to-One)
+Cart → CartItem       (One-to-Many)
+Product → CartItem    (Many-to-One)
+User → Order          (One-to-Many)
+Order → OrderItem     (One-to-Many)
+Product → OrderItem   (Many-to-One)
+Order → Payment       (One-to-One)
+Product → Inventory   (One-to-One)
+```
+
+---
+
+## API Design
+
+This API design outlines the core RESTful endpoints for the e-commerce system, focusing on the main user flows expected in an interview. All endpoints assume secure communication (**HTTPS**) and user authentication via a token (e.g., **JWT** in the `Authorization` header).
+
+### `POST /auth/login`
+
+Authenticates user.
+
+```json
+// Request
+{ "email": "user@example.com", "password": "password123" }
+
+// Response (200)
+{ "token": "jwt_token", "user_id": 123 }
+```
+
+### `GET /products?category_id=5&search=phone&page=1&limit=20`
+
+Lists products with filters.
+
+```json
+// Response (200)
+{
+  "products": [
+    { "id": 1, "name": "Smartphone", "price": 699.99 }
+  ],
+  "total": 100
+}
+```
+
+### `POST /cart/items`
+
+Adds item to cart.
+
+```json
+// Request
+{ "product_id": 1, "quantity": 2 }
+
+// Response (201)
+{ "message": "Item added" }
+```
+
+### `POST /orders`
+
+Places order.
+
+```json
+// Request
+{ "payment_method": "credit_card", "shipping_address": "123 Main St" }
+
+// Response (201)
+{ "order_id": 789, "total_amount": 1399.98 }
+```
+
+### `POST /orders/{id}/pay`
+
+Processes payment.
+
+```json
+// Request
+{ "payment_token": "token" }
+
+// Response (200)
+{ "payment_id": 101, "status": "completed" }
+```
+
+---
+
+## Product Browsing Flow
+
+![Product Browsing Flow — E-Commerce System Design](/static/images/ecommerce-system-design/product-browsing-flow.png)
+
+### Client App
+
+**User Action:** The user sends a request to browse products via `GET /products?search=smartphone`.
+
+### API Gateway
+
+**Routing:** The API Gateway receives the request, authenticates the user, applies rate limiting, and forwards the request to the **Product Service**.
+
+**Additional Functionality:**
+- **Authentication and Authorization:** Verifies the JWT token.
+- **Rate Limiting:** Prevents abuse by limiting the number of requests per user.
+- **Load Balancing:** Distributes requests across multiple instances of the Product Service using a **Round Robin** approach for optimal load distribution.
+
+### Product Service
+
+**Elasticsearch:** Queries an Elasticsearch index for product metadata. Elasticsearch is used due to:
+- **Full-text search** capabilities (keyword, category filters).
+- **Typo tolerance** and low latency (&lt;200ms).
+- **Horizontal scalability** to millions of products.
+
+**Redis:** Caches frequently accessed product metadata (read-heavy data) with a short TTL (e.g., 5 minutes), reducing latency and load on Elasticsearch.
+
+### Inventory Service
+
+Independently called by the Product Service to fetch real-time stock data.
+- Maintains accurate stock counts.
+- Utilizes a **strongly consistent store** (e.g., Cassandra with Lightweight Transactions, PostgreSQL, or Redis locks) to prevent overselling and ensure atomicity, especially critical during high-traffic periods (e.g., Black Friday).
+
+> **Why Cassandra?** Cassandra is a great option here — its blend of high write performance, horizontal scalability, tunable consistency, and built-in atomicity via LWT makes it an ideal choice for the Inventory Service. It excels in high-traffic, write-heavy scenarios, ensuring stock accuracy without sacrificing availability. Perfect for a robust e-commerce browsing flow.
+
+### Response
+
+Product Service aggregates the search results (from Elasticsearch/Redis) with stock data (from Inventory Service) and returns:
+
+```json
+{
+  "products": [
+    { "id": 1, "name": "Smartphone", "price": 699.99, "stock_quantity": 50 }
+  ]
+}
+```
+
+---
+
+## Cart Management Flow
+
+![Cart Management Flow — E-Commerce System Design](/static/images/ecommerce-system-design/cart-management-flow.png)
+
+### Client App
+
+**User Action:** The user adds a product via `POST /cart/items` with `{"product_id": 1, "quantity": 2}`.
+
+### API Gateway
+
+**Routing:** Receives the request, authenticates the user via JWT, applies rate limiting, and forwards it to the **Cart Service**.
+
+### Cart Service
+
+**Inventory Service:** Independently called by the Cart Service to verify real-time stock availability.
+- Checks if sufficient stock is available for the requested quantity.
+- If stock is insufficient, the Cart Service returns an error: `{"error": "Insufficient stock"}`.
+
+**DynamoDB:** Used to store cart items due to:
+- **Single-digit millisecond latency.**
+- **Auto-scaling capabilities**, suitable for millions of concurrent carts.
+- **Eventual consistency** is acceptable for cart updates (non-critical).
+
+**Redis:** Caches user's cart data for quick retrieval (`GET /cart`), reducing DynamoDB load. Given frequent updates, a longer TTL (e.g., 24 hours) is appropriate.
+
+### Response
+
+If inventory check passes, returns: `{"message": "Item added"}`.
+
+Supports additional operations: `PUT` (update quantity), `DELETE` (remove item).
+
+---
+
+## Checkout and Order Placement Flow
+
+![Checkout and Order Placement Flow — E-Commerce System Design](/static/images/ecommerce-system-design/checkout-order-flow.png)
+
+### Client App
+
+**User Action:** User initiates checkout via `POST /orders` with:
+
+```json
+{ "payment_method": "credit_card", "shipping_address": "123 Main St" }
+```
+
+### API Gateway
+
+**Routing:** Authenticates the user (JWT verification), applies rate limiting, and correctly forwards the request to the **Order Service**.
+
+### Order Service
+
+**Cart Retrieval:** Retrieves the user's cart from DynamoDB or the Redis cache.
+
+**Inventory Validation & Reservation:**
+- Calls the dedicated **Inventory Service** to atomically reserve stock.
+- Inventory Service manages reservations using a strongly consistent store (Cassandra Lightweight Transactions, PostgreSQL transactions, or Redis distributed locks).
+- If insufficient stock exists, returns an error to the client: `{"error": "Insufficient stock available"}`.
+
+**Payment Processing:** Calls Payment Service (`POST /orders/{order_id}/pay`) to securely process payment via Stripe.
+
+### Payment Service
+
+**Third Party Payment Provider:** Stripe is used as the payment gateway for secure transactions (security requirement) and supports multiple payment methods (functional requirement). It handles retries and refunds externally.
+
+**Async Processing:** After successful payment confirmation, publishes an event to a message queue (e.g., **Kafka**).
+
+### Worker (Async via Kafka Events)
+
+**Order Storage:** Saves orders and order items in the **Order Database**.
+
+> **Why PostgreSQL?** PostgreSQL's ACID compliance, relational model, transactional consistency, and durability make it a great choice for the Order Database. It ensures order data is accurate, queryable, and resilient — key requirements for an e-commerce system's checkout flow, especially under pressure. While alternatives like DynamoDB or Cassandra excel in other areas, PostgreSQL's strengths align perfectly with the need for trustworthy, structured order management.
+
+**Inventory Confirmation:** Finalizes the reserved stock deduction atomically through the Inventory Service.
+
+### Response
+
+After successful processing, the Order Service returns:
+
+```json
+{ "order_id": 789, "total_amount": 1399.98 }
+```
+
+---
+
+## Complete Architecture
+
+![Complete Architecture — E-Commerce Platform System Design](/static/images/ecommerce-system-design/complete-architecture.png)
+
+The complete architecture brings together all the individual flows into a cohesive, event-driven microservices system. Here's a summary of the key components:
+
+| Component | Technology | Role |
+|---|---|---|
+| **API Gateway** | Custom / Kong / NGINX | Authentication, rate limiting, routing, load balancing |
+| **Product Service** | Spring Boot / Node.js | Product search and catalog management |
+| **Product Metadata** | Elasticsearch | Full-text search with typo tolerance |
+| **Product Cache** | Redis | Low-latency caching for read-heavy product data |
+| **Cart Service** | Spring Boot / Node.js | Cart CRUD operations with inventory validation |
+| **Cart Database** | DynamoDB | Fast, scalable cart persistence |
+| **Cart Cache** | Redis | Quick cart retrieval |
+| **Order Service** | Spring Boot / Node.js | Checkout orchestration and order creation |
+| **Payment Service** | Spring Boot / Node.js | Secure payment processing |
+| **Third Party Provider** | Stripe | External payment gateway |
+| **Message Queue** | Apache Kafka | Async event-driven processing |
+| **Workers** | Consumer Services | Order storage, inventory finalization |
+| **Order Database** | PostgreSQL | ACID-compliant order storage |
+| **Inventory Service** | Spring Boot / Node.js | Real-time stock management |
+| **Inventory Database** | Cassandra | High-write, horizontally scalable stock store |
+
+---
+
+## Additional Discussion Points
+
+### 🔐 Security and Compliance
+
+- **TLS/HTTPS** encryption for all communication.
+- **PCI DSS compliance** for payment data handling.
+- **JWT-based authentication** with token expiration and refresh tokens.
+- **Input validation and sanitization** at the API Gateway level.
+- **Secret management** via tools like AWS Secrets Manager or HashiCorp Vault.
+
+### ⚖️ Load Balancing and Scalability
+
+- **Horizontal scaling** with auto-scaling groups behind a load balancer.
+- **Database sharding** for large datasets (e.g., orders by user ID range).
+- **Read replicas** for read-heavy workloads.
+- **CDN integration** for static assets and product images.
+- **Connection pooling** for efficient database connections.
+
+### 🛡️ Error Handling and Reliability
+
+- **Circuit breaker pattern** (e.g., Hystrix/Resilience4j) to prevent cascade failures.
+- **Retry logic with exponential backoff** for transient failures.
+- **Dead letter queues (DLQ)** in Kafka for failed event processing.
+- **Idempotency keys** to prevent duplicate orders and payments.
+- **Graceful degradation** — show cached data when services are temporarily down.
+
+### 📊 Monitoring and Logging
+
+- **Distributed tracing** (e.g., Jaeger, Zipkin) for request flow visibility.
+- **Centralized logging** (e.g., ELK Stack — Elasticsearch, Logstash, Kibana).
+- **Metrics dashboards** (e.g., Grafana + Prometheus) for latency, error rates, throughput.
+- **Alerting** (e.g., PagerDuty) for SLA breaches and anomalies.
+- **Health checks** for every microservice via `/actuator/health` endpoints.
+
+---
+
+## Wrapping Up
+
+This system design demonstrates how a modern e-commerce platform leverages **event-driven architecture**, **microservices**, and **distributed databases** to handle millions of users, ensure real-time inventory accuracy, and provide a seamless shopping experience.
+
+The key takeaways:
+
+1. **Separate concerns** — Each service owns its domain (Product, Cart, Order, Payment, Inventory).
+2. **Choose the right database** — Use the best tool for each job (Elasticsearch for search, DynamoDB for cart, PostgreSQL for orders, Cassandra for inventory).
+3. **Async processing** — Kafka decouples payment confirmation from order storage, improving resilience and throughput.
+4. **Cache aggressively** — Redis sits in front of every read-heavy data source.
+5. **Design for failure** — Circuit breakers, retries, idempotency, and DLQs ensure the system stays up under pressure.
+
+> **Stay tuned** — GitHub links with implementation code for each service will be added soon! 🚀
+
+---
+
+**Thanks for reading! If you found this system design breakdown helpful, share it with fellow developers preparing for system design interviews. 🎯**

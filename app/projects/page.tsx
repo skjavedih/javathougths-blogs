@@ -13,7 +13,7 @@ export default function Projects() {
             Projects
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            Showcase your projects with a hero image (16 x 9)
+            Deep-dive into real-world system design — High Level & Low Level Design breakdowns with architecture diagrams.
           </p>
         </div>
         <div className="container py-12">
